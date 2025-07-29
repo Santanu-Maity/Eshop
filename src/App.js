@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import Home from "./Public/Home";
 import Card from "./Public/Product";
 import Singup from "./Public/Singup";
+import Product from "./Public/Product";
 function App() {
   return (
    <>
