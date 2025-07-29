@@ -17,16 +17,13 @@ export default function Navbar() {
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="#">Product</Link>
-        </li>
-        <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="#">Utilies</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="#">Travels</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/Login">Login</Link>
+          <Link className="nav-link active" aria-current="page" to="/Login">LogIn</Link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" to="/Login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
