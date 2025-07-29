@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Product() {
   const products=[
-    {id:1,name:"Speaker",price:1000},
+    {id:1,name:"Speaker",price:1000,image:'./img/speaker.jpg'},
     {id:2,name:"TV",price:20000},
     {id:3,name:"Shoe",price:900},
     {id:4,name:"Smart Phone",price:30000},
@@ -23,6 +23,7 @@ export default function Product() {
         {products.map((product) => (
           <div className="col-sm-3 mb-3" key={product.id}>
             <div className="card">
+              <img src={product.image} className="card-img-top"/>
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text">Price:Rs{product.price}</p>
