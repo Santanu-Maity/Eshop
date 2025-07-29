@@ -10,7 +10,8 @@ function App() {
    <>
    <Routes>
     <Route path="/" element = {<> <Navbar/><Home/> <Card/></>}/>
-    <Route path="/Login" element = {<> <Navbar/><Singup/></>}/>
+    <Route path="/Signup" element = {<> <Navbar/><Singup/></>}/>
+    <Route path="/Product" element = {<> <Navbar/><Product/></>}/>
    </Routes>
    </>
   );
