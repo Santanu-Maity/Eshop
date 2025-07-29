@@ -28,6 +28,19 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/Login">Login</Link>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" to="/Login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu">
+            <li><Link class="dropdown-item" to="./Login">Action</Link></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item" to="#">Another action</a></li>
+            
+            <li><a class="dropdown-item" to="#">Something else here</a></li>
+          </ul>
+        </li>
+        
         <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/Product">Product</Link>
               </li>
