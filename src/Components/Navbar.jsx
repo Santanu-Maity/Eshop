@@ -33,11 +33,10 @@ export default function Navbar() {
             Login
           </a>
           <ul class="dropdown-menu">
-            <li><Link class="dropdown-item" to="./Login">Action</Link></li>
+            <li><Link class="dropdown-item" to="/Signup">New User Signup</Link></li>
             <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" to="#">Another action</a></li>
-            
-            <li><a class="dropdown-item" to="#">Something else here</a></li>
+            <li><a class="dropdown-item" to="#">Old User Signin</a></li>
+            <li><a class="dropdown-item" to="#">View Your Profile</a></li>
           </ul>
         </li>
         
