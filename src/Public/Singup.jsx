@@ -34,6 +34,15 @@ export default function Singup() {
          <option value="Female">Female</option>
         </select>
         </div>
+        
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+        <select class="form-select" aria-label="Default select example" required>
+        <option selected>Select Your Gender </option>
+        <option value="Male">Male</option>
+         <option value="Female">Female</option>
+        </select>
+        </div>
 
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
