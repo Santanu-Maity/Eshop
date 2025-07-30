@@ -21,11 +21,11 @@ function App() {
     <Route path="/Product" element = {<> <Navbar/><Product/></>}/>
     <Route path="/Login" element = {<> <Navbar/><Login/></>}/>
 
-    <Route path="/footer" element = {<> <Footer/></>}/>
+    
   
 
    </Routes>
-
+      <Footer/>
     </>
   );
 }

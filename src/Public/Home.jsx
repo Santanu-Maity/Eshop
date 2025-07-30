@@ -2,9 +2,6 @@
 import React from 'react'
 import Product from './Product'
 import MostBuy from './MostBuy'
-import Footer from './Footer'
-
-
 
 export default function Home() {
   return (
@@ -44,7 +41,7 @@ export default function Home() {
 <Product/>
 
 
-  <Footer/>
+  
    </>
     
 
