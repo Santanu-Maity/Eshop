@@ -3,10 +3,34 @@ import React from 'react'
 export default function Singup() {
   return (
     <>
+<<<<<<< Updated upstream
       <form className="container bg-secondary bg-gradient">
         <div className="fs-5 fw-bold container-xxl ">
           <label for="exampleFormControlInput1" class="form-label">First Name</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Example - Santanu" required />
+=======
+    <div class="container ">
+      <form>
+        
+        <div class="mb-3"> 
+        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Example - Santanu"required/>
+        </div>
+        
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Example - Maity"required/>
+        </div>
+        
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Mobile</label>
+        <input type="Number" class="form-control" id="exampleFormControlInput1" placeholder="+91 xxxxxxxxxx"required/>
+        </div>
+        
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">DOB</label>
+        <input type="Date" class="form-control" id="exampleFormControlInput1" placeholder="DOB" required/>
+>>>>>>> Stashed changes
         </div>
 
         <div className="fs-5 fw-bold container-xxl">
@@ -19,6 +43,7 @@ export default function Singup() {
           <input type="Number" class="form-control" id="exampleFormControlInput1" placeholder="+91 xxxxxxxxxx" required />
         </div>
 
+<<<<<<< Updated upstream
         <div className="fs-5 fw-bold container-xxl">
           <label for="exampleFormControlInput1" class="form-label">DOB</label>
           <input type="Date" class="form-control" id="exampleFormControlInput1" placeholder="DOB" required />
@@ -50,6 +75,12 @@ export default function Singup() {
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-primary">SUBMIT</button>
         </div>
+=======
+        <div class="d-flex justify-content-center">
+  <button type="submit" class="btn btn-primary">SUBMIT</button>
+</div>
+
+>>>>>>> Stashed changes
 
       </form>
 
