@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from './Product';
+import MostBuy from './Product';
 export default function Home() {
   return (
    <>
