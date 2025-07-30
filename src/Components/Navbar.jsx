@@ -45,6 +45,7 @@ export default function Navbar() {
                 <input type="text" className="form-control me-2" placeholder="Search Here" aria-describedby="button-addon2" />
                 <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
               </div>
+              
               <div className='ms-2'>
                 <Link class="navbar-btn btn btn-sm btn-primary lift ms-auto" to="/Cart">
                   Cart
