@@ -5,6 +5,7 @@ import Home from "./Public/Home";
 import Singup from "./Public/Singup";
 import Product from "./Public/Product";
 import Login from "./Public/Login";
+import Cart from "./Public/Cart";
 
 
 
@@ -18,10 +19,10 @@ function App() {
     <Route path="/Signup" element = {<> <Navbar/><Singup/></>}/>
     <Route path="/Product" element = {<> <Navbar/><Product/></>}/>
     <Route path="/Login" element = {<> <Navbar/><Login/></>}/>
-   
+    <Route path="/Cart" element = {<> <Navbar/><Cart/></>}/>
   
 
-      </Routes>
+      </Routes> 
     </>
   );
 }

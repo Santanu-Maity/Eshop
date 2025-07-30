@@ -17,6 +17,7 @@ export default function Product() {
     { id: 12, name: "Perfume", price: 199, image: './img/perfume.jpg' },
 
 
+
   ]
   return (
     <>
