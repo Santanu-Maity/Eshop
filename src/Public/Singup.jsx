@@ -44,6 +44,7 @@ export default function Singup() {
         </div>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <div className="fs-5 fw-bold container-xxl">
           <label for="exampleFormControlInput1" class="form-label">DOB</label>
           <input type="Date" class="form-control" id="exampleFormControlInput1" placeholder="DOB" required />
@@ -76,10 +77,15 @@ export default function Singup() {
           <button type="submit" class="btn btn-primary">SUBMIT</button>
         </div>
 =======
+=======
+>>>>>>> Stashed changes
         <div class="d-flex justify-content-center">
   <button type="submit" class="btn btn-primary">SUBMIT</button>
 </div>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
       </form>
