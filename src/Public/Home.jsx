@@ -1,4 +1,6 @@
 import React from 'react'
+import Product from './Product'
+
 export default function Home() {
   return (
    <>
@@ -33,7 +35,7 @@ export default function Home() {
 </div>
 
   
-
+<Product/>
 
    </>
     
