@@ -22,9 +22,7 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="#">Travels</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/Login">LogIn</Link>
-        </li>
+      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" to="/Login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Login
@@ -32,7 +30,7 @@ export default function Navbar() {
           <ul class="dropdown-menu">
             <li><Link class="dropdown-item" to="/Signup">New User Signup</Link></li>
             <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" to="#">Old User Signin</a></li>
+            <li><Link class="dropdown-item" to="/Login">Old User LogIn</Link></li>
             <li><a class="dropdown-item" to="#">View Your Profile</a></li>
           </ul>
         </li>
