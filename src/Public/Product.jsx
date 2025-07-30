@@ -8,7 +8,7 @@ export default function Product() {
     { id: 3, name: "TV", price: 18999, image: './img/TV.jpg' },
     { id: 4, name: "Neck band", price: 699, image: './img/neck band.jpg' },
     { id: 5, name: "Laptop", price: 49500, image: './img/laptop.jpg' },
-    { id: 6, name: "T-Shirt", price: 398, image: './img/t-shirt2.jpg' },
+    { id: 6, name: "T-Shirt", price: 398, image: './img/t-shirt.jpg' },
     { id: 7, name: "Smart Watch", price: 1299, image: './img/smart Watch.jpg' },
     { id: 8, name: "Headphone", price: 1799, image: './img/head phone.jpg' },
     { id: 9, name: "Wall Clock", price: 215, image: './img/wall clock.jpg' },
