@@ -9,6 +9,7 @@ import Login from "./Public/Login";
 
 
 
+
 function App() {
   return (
    <>
@@ -17,7 +18,7 @@ function App() {
     <Route path="/Signup" element = {<> <Navbar/><Singup/></>}/>
     <Route path="/Product" element = {<> <Navbar/><Product/></>}/>
     <Route path="/Login" element = {<> <Navbar/><Login/></>}/>
-  
+    
    </Routes>
    </>
   );
