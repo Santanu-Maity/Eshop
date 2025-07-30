@@ -6,7 +6,9 @@ import Card from "./Public/Product";
 import Singup from "./Public/Singup";
 import Product from "./Public/Product";
 import Login from "./Public/Login";
-import Cart from "./Public/Cart";
+
+
+
 function App() {
   return (
    <>
