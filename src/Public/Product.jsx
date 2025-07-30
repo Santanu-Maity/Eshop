@@ -14,7 +14,7 @@ export default function Product() {
      { id: 7, name: "Analog Watch", price: 292, image: './img/Analog Watch.jpg' },
     { id: 8, name: "Headphone", price: 1799, image: './img/head phone.jpg' },
     { id: 9, name: "Wall Clock", price: 215, image: './img/wall clock.jpg' },
-    { id: 10, name: "Smart Phone", price: 13999, image: './img/smart phone.jpg' },
+    { id: 10, name: "Smart Phone", price: 12998, image: './img/smart phone.jpg' },
     { id: 11, name: "Shoe", price: 599, image: './img/shoe.jpg' },
     { id: 12, name: "Perfume", price: 199, image: './img/perfume.jpg' },
 
