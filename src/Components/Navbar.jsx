@@ -7,7 +7,9 @@ export default function Navbar() {
     <> 
     <nav className="navbar navbar-expand-lg navbar-light  ">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="#">Eshop</Link>
+    <a class="navbar-brand" href="/">
+    <img src="./img/Eshop.png" width="100px" height="30" class="d-inline-block align-top" alt=""/>
+  </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -16,16 +18,16 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
+        
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="#">Utilies</Link>
+                <Link className="nav-link active" aria-current="page" to="/Product">Product</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="#">Travels</Link>
+          <Link className="nav-link active" aria-current="page" to="#">Cart</Link>
         </li>
-      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" to="/Login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Login
+            LogIn
           </a>
           <ul class="dropdown-menu">
             <li><Link class="dropdown-item" to="/Signup">New User Signup</Link></li>
@@ -35,9 +37,7 @@ export default function Navbar() {
           </ul>
         </li>
         
-        <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/Product">Product</Link>
-              </li>
+        
       </ul>
       <form className="d-flex">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
