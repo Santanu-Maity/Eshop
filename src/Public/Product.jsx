@@ -2,11 +2,11 @@ import React from 'react'
 
 export default function Product() {
   const products = [
-    { id: 1, name: "Speaker", price: 399, image: './img/speaker.jpg' },
-    { id: 2, name: "Cycle", price: 5200, image: './img/cycle.jpg' },
-    { id: 3, name: "TV", price: 17999, image: './img/TV.jpg' },
+    { id: 1, name: "Speaker", price: 300, image: './img/speaker.jpg' },
+    { id: 2, name: "Cycle", price: 5202, image: './img/cycle.jpg' },
+    { id: 3, name: "TV", price: 18999, image: './img/TV.jpg' },
     { id: 4, name: "Neck band", price: 699, image: './img/neck band.jpg' },
-    { id: 5, name: "Laptop", price: 55999, image: './img/laptop.jpg' },
+    { id: 5, name: "Laptop", price: 49500, image: './img/laptop.jpg' },
     { id: 6, name: "T-Shirt", price: 398, image: './img/t-shirt2.jpg' },
     { id: 7, name: "Smart Watch", price: 1299, image: './img/smart Watch.jpg' },
     { id: 8, name: "Headphone", price: 1799, image: './img/head phone.jpg' },
