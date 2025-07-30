@@ -8,6 +8,9 @@ import Product from "./Public/Product";
 import Login from "./Public/Login";
 import Details from "./Public/Details";
 
+
+
+
 function App() {
   return (
    <>
@@ -17,6 +20,7 @@ function App() {
     <Route path="/Product" element = {<> <Navbar/><Product/></>}/>
     <Route path="/Login" element = {<> <Navbar/><Login/></>}/>
      <Route path="/Details" element = {<> <Navbar/><Details/></>}/>
+
    </Routes>
    </>
   );
