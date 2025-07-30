@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Signup() {
   return (
-    <form className="container bg-secondary bg-gradient p-4">
+    <form className="container bg-secondary bg-gradient p-4 ">
       <div className="mb-3">
         <label htmlFor="firstName" className="form-label">First Name</label>
         <input type="text" className="form-control" id="firstName" placeholder="Example - Santanu" required />

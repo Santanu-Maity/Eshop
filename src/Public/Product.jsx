@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Product() {
   const products = [
@@ -21,7 +22,7 @@ export default function Product() {
     <>
       <div className="row m-3">
         {products.map((product) => (
-          <div className="col-sm-2 mb-2" key={product.id}>
+          <Link to={`/${product.id}`} style={{textDecoration:"None"}} className="col-sm-2 mb-2" key={product.id}>
             <div class="card text-center" style={{ height: "100%" }}>
               <div class="card-header">
                 {product.name}
@@ -34,7 +35,7 @@ export default function Product() {
                 Price:₹{product.price}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>
