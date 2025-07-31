@@ -8,7 +8,7 @@ export default function Navbar() {
       <nav
         className="navbar navbar-expand-lg"
         style={{
-          background: "linear-gradient(90deg, #667eea 0%, #764ba2 100%)",
+          background: "linear-gradient(90deg, #ebf4f7ff 0%, #4f97e5ff 100%)",
           boxShadow: "0 4px 24px rgba(118,75,162,0.08)",
         }}
       >
@@ -44,13 +44,14 @@ export default function Navbar() {
                 onMouseLeave={() => setActivate("")}
               >
                 <Link
-                  className={`nav-link ${Activate} text-white fw-bold`}
+                  className={`nav-link ${Activate} text-white fw-bold bi bi-house-door-fill`}
                   aria-current="page"
                   to="/"
                 >
-                  Home
+                   Home
                 </Link>
               </li>
+              
 
               <li
                 className="nav-item"
@@ -66,6 +67,7 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
+            
 
             <div className="d-flex align-items-center">
               <div className="input-group input-group-sm mb-0" style={{ maxWidth: 200 }}>
