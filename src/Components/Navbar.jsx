@@ -98,10 +98,10 @@ export default function Navbar() {
                   to="/Cart"
                   style={{
                     borderRadius: "2rem",
-                    color: "#243de2ff",
+                    color: "#764ba2",
                     background: "#fff3cd",
                     border: "none",
-                    boxShadow: "0 2px 8px rgba(23, 75, 206, 0.08)",
+                    boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
                   }}
                 >
                   <i className="bi bi-cart3 me-2"></i> Cart
