@@ -14,15 +14,15 @@ export default function Navbar() {
       >
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/">
-  <img
-    src="./img/Eshop.png"
-    width="140px"
-    height="40"
-    className="d-inline-block align-top me-2"
-    alt=""
-    style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.08))" }}
-  />
-</Link>
+            <img
+              src="./img/Eshop.png"
+              width="140px"
+              height="40"
+              className="d-inline-block align-top me-2"
+              alt=""
+              style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.08))" }}
+            />
+          </Link>
 
           <button
             className="navbar-toggler"
