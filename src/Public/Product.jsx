@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Tbox2 from './Tbox2'
 
 export default function Product() {
   const products = [
@@ -23,6 +24,9 @@ export default function Product() {
   ]
   return (
     <>
+  
+    <Tbox2/>
+
       <div className="row m-3">
         {products.map((product) => (
           <Link to={`/${product.id}`} style={{ textDecoration: "None" }} className="col-sm-2 mb-2" key={product.id}>
