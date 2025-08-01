@@ -76,7 +76,7 @@ export default function Navbar() {
           {/* Right Side */}
           <div className="d-flex align-items-center">
             {/* Search */}
-            <div className="input-group input-group-sm mb-0" style={{ maxWidth: 200 }}>
+            <div className="input-group input-group-sm mb-0" style={{ maxWidth: 400 }}>
               <input
                 type="text"
                 className="form-control me-2"
@@ -107,7 +107,7 @@ export default function Navbar() {
                 style={{
                   borderRadius: "2rem",
                   color: "#764ba2",
-                  background: "#fff3cd",
+                  background: "#ffffffff",
                   border: "none",
                   boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
                 }}
