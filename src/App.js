@@ -7,6 +7,7 @@ import Product from "./Public/Product";
 import Login from "./Public/Login";
 import Footer from "./Public/Footer";
 import Cart from "./Public/Cart";
+import Details from "./Public/Details";
 
 
 
@@ -22,6 +23,7 @@ function App() {
     <Route path="/Product" element = {<> <Navbar/><Product/></>}/>
     <Route path="/Login" element = {<> <Navbar/><Login/></>}/>
     <Route path="/Cart" element = {<> <Navbar/><Cart/></>}/>
+    <Route path="/Details" element = {<> <Navbar/><Details/></>}/>
 
     
   
