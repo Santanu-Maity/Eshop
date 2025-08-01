@@ -24,6 +24,7 @@ function App() {
     <Route path="/Login" element = {<> <Navbar/><Login/></>}/>
     <Route path="/Cart" element = {<> <Navbar/><Cart/></>}/>
     <Route path="/Details" element = {<> <Navbar/><Details/></>}/>
+    <Route path="/:id" element = {<> <Navbar/><Details/></>}/>
 
     
   
