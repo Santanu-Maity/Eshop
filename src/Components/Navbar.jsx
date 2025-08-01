@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -22,7 +22,7 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Toggler for mobile */}
+        {/* Toggler */}
         <button
           className="navbar-toggler"
           type="button"
@@ -35,43 +35,47 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar content */}
+        {/* Collapsible Navbar */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          
-          {/* Centered buttons */}
-          <div className="mx-auto d-flex">
-            <Link
-              className="btn btn-sm fw-bold px-3 me-2"
-              to="/"
-              style={{
-                borderRadius: "2rem",
-                color: "#764ba2",
-                background: "#fff3cd",
-                border: "none",
-                boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
-              }}
-            >
-              <i className="bi bi-house-door-fill me-1"></i> Home
-            </Link>
 
-            <Link
-              className="btn btn-sm fw-bold px-3"
-              to="/Product"
-              style={{
-                borderRadius: "2rem",
-                color: "#764ba2",
-                background: "#fff3cd",
-                border: "none",
-                boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
-              }}
-            >
-              Product
-            </Link>
-          </div>
+          {/* Nav Links */}
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 d-flex align-items-center gap-2">
+            <li className="nav-item">
+              <Link
+                className="btn btn-sm fw-bold px-3"
+                to="/"
+                style={{
+                  borderRadius: "2rem",
+                  color: "#764ba2",
+                  background: "#fcfcfcff",
+                  border: "none",
+                  boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
+                }}
+              >
+                <i className="bi bi-house-door-fill me-1"></i> Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="btn btn-sm fw-bold px-3"
+                to="/Product"
+                style={{
+                  borderRadius: "2rem",
+                  color: "#764ba2",
+                  background: "#fcfcfcff",
+                  border: "none",
+                  boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
+                }}
+              >
+                <i className="bi bi-bag me-1"></i> Product
+              </Link>
 
-          {/* Right side: Search, Cart, Login */}
+            </li>
+          </ul>
+
+          {/* Right Side */}
           <div className="d-flex align-items-center">
-            {/* Search Box */}
+            {/* Search */}
             <div className="input-group input-group-sm mb-0" style={{ maxWidth: 200 }}>
               <input
                 type="text"
@@ -153,5 +157,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
