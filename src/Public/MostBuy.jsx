@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 export default function MostBuy() {
   const products = [
-    { id: 11, name: "Washing Machine", price: 6490, image: './img/washing machine.jpg' },
-    { id: 12, name: "Neck band", price: 699, image: './img/neck band.jpg' },
+    { id: 13, name: "Washing Machine", price: 6490, image: './img/washing machine.jpg' },
+    { id: 14, name: "Neck band", price: 699, image: './img/neck band.jpg' },
    
     
-    { id: 13, name: "Smart Watch", price: 1299, image: './img/smart Watch.jpg' },
-     { id: 14, name: "Buds", price: 1399, image: './img/buds.jpg' },
-    { id: 15, name: "Laptop", price: 49500, image: './img/laptop.jpg' },
-    { id: 16, name: "T-Shirt", price: 398, image: './img/t-shirt.jpg' },
+    { id: 15, name: "Smart Watch", price: 1299, image: './img/smart Watch.jpg' },
+     { id: 16, name: "Buds", price: 1399, image: './img/buds.jpg' },
+    { id: 17, name: "Laptop", price: 49500, image: './img/laptop.jpg' },
+    { id: 18, name: "T-Shirt", price: 398, image: './img/t-shirt.jpg' },
     
 
   ]
