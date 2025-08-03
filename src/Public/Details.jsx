@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 // Product List
 const productList = [
-  { id: 1, name: "Speaker", price: 300, image: '/img/speaker2.jpg', description: "High-quality Bluetooth speaker with deep bass.", rating: 4 },
+  { id: 1, name: "Speaker", price: 300, image: '/img/speaker3.jpg', description: "High-quality Bluetooth speaker with deep bass.", rating: 4 },
   { id: 2, name: "Cycle", price: 5202, image: '/img/cycle2.jpg', description: "Durable mountain bike for all terrains.", rating: 5 },
   { id: 3, name: "TV", price: 18999, image: '/img/tv2.jpg', description: "42-inch Smart LED TV with HD resolution.", rating: 4 },
   { id: 4, name: "Chair", price: 3590, image: '/img/chair2.jpg', description: "Ergonomic office chair with lumbar support.", rating: 3 },
