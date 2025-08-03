@@ -20,12 +20,12 @@ export default function Signup() {
         <form>
           <div className="mb-3">
             <label className="form-label">First Name</label>
-            <input type="text" className="form-control" placeholder="Example - Santanu" required />
+            <input type="text" className="form-control" placeholder="" required />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Last Name</label>
-            <input type="text" className="form-control" placeholder="Example - Maity" required />
+            <input type="text" className="form-control" placeholder="" required />
           </div>
 
           <div className="mb-3">
