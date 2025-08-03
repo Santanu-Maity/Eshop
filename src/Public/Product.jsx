@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import Tbox2 from './Tbox2';
 
 const products = [
-  { id: 1, name: "Speaker", price: 300, image: './img/speaker.jpg' },
-  { id: 2, name: "Cycle", price: 5202, image: './img/cycle.jpg' },
-  { id: 3, name: "TV", price: 18999, image: './img/TV.jpg' },
-  { id: 4, name: "Chair", price: 3590, image: './img/Chair.jpg' },
+  { id: 1, name: "Speaker", price: 300, image: './img/speaker3.jpg' },
+  { id: 2, name: "Cycle", price: 5202, image: './img/cycle2.jpg' },
+  { id: 3, name: "TV", price: 18999, image: './img/tv2.jpg' },
+  { id: 4, name: "Chair", price: 3590, image: './img/Chair2.jpg' },
   { id: 5, name: "Coffee", price: 740, image: './img/Coffee.jpg' },
-  { id: 6, name: "Bed", price: 14999, image: './img/Bed.jpg' },
-  { id: 7, name: "Analog Watch", price: 292, image: './img/Analog Watch.jpg' },
-  { id: 8, name: "Headphone", price: 1799, image: './img/head phone.jpg' },
-  { id: 9, name: "Wall Clock", price: 215, image: './img/wall clock.jpg' },
-  { id: 10, name: "Smart Phone", price: 12998, image: './img/smart phone.jpg' },
-  { id: 11, name: "Shoe", price: 599, image: './img/shoe.jpg' },
+  { id: 6, name: "Bed", price: 14999, image: './img/bed2.jpg' },
+  { id: 7, name: "Analog Watch", price: 292, image: './img/Analog Watch2.jpg' },
+  { id: 8, name: "Headphone", price: 1799, image: './img/headphone2.jpg' },
+  { id: 9, name: "Wall Clock", price: 215, image: './img/wall clock2.jpg' },
+  { id: 10, name: "Smart Phone", price: 12998, image: './img/smart phone2.jpg' },
+  { id: 11, name: "Shoe", price: 599, image: './img/shoe2.jpg' },
   { id: 12, name: "Perfume", price: 199, image: './img/perfume.jpg' },
 ];
 
