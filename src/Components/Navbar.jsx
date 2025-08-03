@@ -147,9 +147,10 @@ export default function Navbar() {
                 </li>
                 <li><hr className="dropdown-divider" /></li>
                 <li>
-                  <Link className="dropdown-item" to="#">
-                    <i className="bi bi-person-lines-fill me-2"></i>Profile
-                  </Link>
+                 <Link className="dropdown-item" to="/Profile">
+  <i className="bi bi-person-lines-fill me-2"></i>Profile
+</Link>
+
                 </li>
               </ul>
             </div>
