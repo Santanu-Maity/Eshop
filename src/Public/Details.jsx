@@ -35,6 +35,9 @@ const Details = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    // 👇 Trigger update event for Navbar
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   const handleAddToCart = () => {
@@ -50,8 +53,13 @@ const Details = () => {
 
   const handleDecrement = () => {
     const newQty = quantity - 1;
-    setQuantity(newQty);
-    updateCartInLocalStorage(newQty);
+    if (newQty < 1) {
+      setQuantity(0);
+      updateCartInLocalStorage(0);
+    } else {
+      setQuantity(newQty);
+      updateCartInLocalStorage(newQty);
+    }
   };
 
   if (!product) {

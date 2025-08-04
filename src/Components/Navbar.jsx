@@ -1,9 +1,23 @@
-import React, { use } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
-  const totalItems = JSON.parse(localStorage.getItem("cart"))?.length || 0;
+  const [totalItems, setTotalItems] = useState(
+  JSON.parse(localStorage.getItem("cart"))?.length || 0
+);
+
+useEffect(() => {
+  const updateCartCount = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    setTotalItems(cart.length);
+  };
+  window.addEventListener("cartUpdated", updateCartCount);
+
+  return () => {
+    window.removeEventListener("cartUpdated", updateCartCount);
+  };
+}, []);
 
   return (
     <nav
