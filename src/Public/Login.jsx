@@ -28,7 +28,7 @@ export default function Login() {
           <form onSubmit={handelSubmit}>
             <div className="mb-3">
               <label htmlFor="userid" className="form-label">User Id</label>
-              <input type="text" className="form-control" id="userid" placeholder="Enter your user id" required />
+              <input type="text" className="form-control" id="userid" placeholder="Email or Mobile Number" required />
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label">Password</label>
