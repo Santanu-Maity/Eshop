@@ -20,17 +20,17 @@ export default function Signup() {
         <form>
           <div className="mb-3">
             <label className="form-label">First Name</label>
-            <input type="text" className="form-control" placeholder="" required />
+            <input type="text" className="form-control" placeholder="Rohit" required />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Last Name</label>
-            <input type="text" className="form-control" placeholder="" required />
+            <input type="text" className="form-control" placeholder="Sharma" required />
           </div>
 
           <div className="mb-3">
             <label className="form-label">Mobile</label>
-            <input type="number" className="form-control" placeholder="+91 xxxxxxxxxx" required />
+            <input type='tel' minLength={10} maxLength={10} className="form-control" placeholder="9876543210" pattern='[6-9]{1}[0-9]{9}' required />
           </div>
 
           <div className="mb-3">

@@ -32,7 +32,7 @@ export default function Login() {
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label">Password</label>
-              <input type="password" className="form-control" id="password" placeholder="Enter your password" required />
+              <input type="password" className="form-control" id="password" placeholder="Enter your password" minLength={8} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' required />
             </div>
             <div className="d-grid">
               <button type="submit" className="btn btn-primary btn-lg rounded-pill mt-2" style={{ background: "linear-gradient(90deg, #667eea 0%, #764ba2 100%)", border: "none" }}>
