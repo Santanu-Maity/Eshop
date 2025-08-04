@@ -9,7 +9,6 @@ const Details = () => {
 
   const [quantity, setQuantity] = useState(0);
 
-  // Load quantity from localStorage on mount
   useEffect(() => {
     if (!product) return;
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -19,7 +18,6 @@ const Details = () => {
     }
   }, [product]);
 
-  // Update cart in localStorage
   const updateCartInLocalStorage = (newQuantity) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const productIndex = cart.findIndex((item) => item.id === product.id);
@@ -94,20 +92,18 @@ const Details = () => {
 
         {/* Right: Table + Cart */}
         <div className="col-md-6">
-          <table className="table table-bordered">
+          <table className="table table-bordered border-dark" style={{ borderWidth: "2px" }}>
             <tbody>
               <tr>
-                <th>Name</th>
+                <th className="fw-bold bg-light" style={{ width: "150px" }}>Name</th>
                 <td>{product.name}</td>
               </tr>
-
               <tr>
-                <th>Price</th>
+                <th className="fw-bold bg-light">Price</th>
                 <td>₹{product.price.toLocaleString()}</td>
               </tr>
-
               <tr>
-                <th>Rating</th>
+                <th className="fw-bold bg-light">Rating</th>
                 <td>
                   {[...Array(5)].map((_, index) => {
                     const full = index + 1 <= Math.floor(product.rating);
@@ -115,28 +111,27 @@ const Details = () => {
                     return (
                       <i
                         key={index}
-                        className={`bi me-1 ${full
-                          ? "bi-star-fill text-warning"
-                          : half
+                        className={`bi me-1 ${
+                          full
+                            ? "bi-star-fill text-warning"
+                            : half
                             ? "bi-star-half text-warning"
                             : "bi-star text-secondary"
-                          }`}
+                        }`}
                       />
                     );
                   })}
                   <span className="text-muted ms-1">{product.rating || 0}</span>
                 </td>
               </tr>
-
               <tr>
-                <th style={{ verticalAlign: "middle", width: "150px" }}>Description</th>
+                <th className="fw-bold bg-light align-top" style={{ width: "150px" }}>
+                  Description
+                </th>
                 <td style={{ minHeight: "120px", whiteSpace: "pre-wrap" }}>
                   {product.description}
                 </td>
               </tr>
-
-
-
             </tbody>
           </table>
 
@@ -146,7 +141,7 @@ const Details = () => {
               <i className="bi bi-cart-plus me-2"></i> Add to Cart
             </button>
           ) : (
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex align-items-center gap-3 mt-3">
               <button className="btn btn-outline-secondary" onClick={handleDecrement}>
                 -
               </button>
