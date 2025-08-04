@@ -10,6 +10,7 @@ import Cart from "./Public/Cart";
 import Details from "./Public/Details";
 import Profile from "./Public/Profile";
 
+
 function App() {
 
   const productList = [
@@ -37,19 +38,24 @@ function App() {
 
   return (
 
-    <>
-      <Routes>
-        <Route path="/" element={<> <Navbar /><Home /> </>} />
-        <Route path="/Signup" element={<> <Navbar /><Singup /></>} />
-        <Route path="/Product" element={<> <Navbar /><Product /></>} />
-        <Route path="/Login" element={<> <Navbar /><Login /></>} />
-        <Route path="/Cart" element={<> <Navbar /><Cart /></>} />
-        <Route path="/Details" element={<> <Navbar /><Details /></>} />
-        <Route path="/:id" element={<> <Navbar /><Details /></>} />
-        <Route path="/Profile" element={<> <Navbar /><Profile /></>} />
-      </Routes>
+    <div className="d-flex flex-column min-vh-100">
+      
+      <div className="flex-grow-1">
+        <Routes>
+          <Route path="/" element={<><Navbar /><Home /></>} />
+          <Route path="/Signup" element={<><Navbar /><Singup /></>} />
+          <Route path="/Product" element={<><Navbar /><Product /></>} />
+          <Route path="/Login" element={<><Navbar /><Login /></>} />
+          <Route path="/Cart" element={<><Navbar /><Cart /></>} />
+          <Route path="/Details" element={<><Navbar /><Details /></>} />
+          <Route path="/:id" element={<><Navbar /><Details /></>} />
+          <Route path="/Profile" element={<><Navbar /><Profile /></>} />
+        </Routes>
+      </div>
+
+      {/* Footer will always be at the bottom */}
       <Footer />
-    </>
+    </div>
   );
 }
 

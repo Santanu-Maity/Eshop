@@ -62,7 +62,7 @@ const Details = () => {
     }
   };
 
-  if (!product) {
+  if (id && !product) {
     return (
       <div className="container text-center mt-5">
         <h2 className="text-danger">❌ Product Not Found</h2>
