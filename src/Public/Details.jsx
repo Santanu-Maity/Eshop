@@ -9,7 +9,6 @@ const Details = () => {
 
   const [quantity, setQuantity] = useState(0);
 
-  // Load quantity from localStorage on mount
   useEffect(() => {
     if (!product) return;
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -19,7 +18,6 @@ const Details = () => {
     }
   }, [product]);
 
-  // Update cart in localStorage
   const updateCartInLocalStorage = (newQuantity) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const productIndex = cart.findIndex((item) => item.id === product.id);
@@ -92,34 +90,50 @@ const Details = () => {
           </div>
         </div>
 
-        {/* Right: Info */}
+        {/* Right: Table + Cart */}
         <div className="col-md-6">
-          <h2 className="fw-bold mb-2">{product.name}</h2>
-          <h4 className="text-success mb-3">
-            ₹{product.price.toLocaleString()}
-          </h4>
-          <p className="text-muted">{product.description}</p>
-
-          {/* Rating Stars */}
-          <div className="mb-3">
-            {[...Array(5)].map((_, index) => {
-              const full = index + 1 <= Math.floor(product.rating);
-              const half = index + 0.5 === product.rating;
-              return (
-                <i
-                  key={index}
-                  className={`bi me-1 ${
-                    full
-                      ? "bi-star-fill text-warning"
-                      : half
-                      ? "bi-star-half text-warning"
-                      : "bi-star text-secondary"
-                  }`}
-                />
-              );
-            })}
-            <span className="text-muted ms-1">{product.rating || 0}</span>
-          </div>
+          <table className="table table-bordered border-dark" style={{ borderWidth: "2px" }}>
+            <tbody>
+              <tr>
+                <th className="fw-bold bg-light" style={{ width: "150px" }}>Name</th>
+                <td>{product.name}</td>
+              </tr>
+              <tr>
+                <th className="fw-bold bg-light">Price</th>
+                <td>₹{product.price.toLocaleString()}</td>
+              </tr>
+              <tr>
+                <th className="fw-bold bg-light">Rating</th>
+                <td>
+                  {[...Array(5)].map((_, index) => {
+                    const full = index + 1 <= Math.floor(product.rating);
+                    const half = index + 0.5 === product.rating;
+                    return (
+                      <i
+                        key={index}
+                        className={`bi me-1 ${
+                          full
+                            ? "bi-star-fill text-warning"
+                            : half
+                            ? "bi-star-half text-warning"
+                            : "bi-star text-secondary"
+                        }`}
+                      />
+                    );
+                  })}
+                  <span className="text-muted ms-1">{product.rating || 0}</span>
+                </td>
+              </tr>
+              <tr>
+                <th className="fw-bold bg-light align-top" style={{ width: "150px" }}>
+                  Description
+                </th>
+                <td style={{ minHeight: "120px", whiteSpace: "pre-wrap" }}>
+                  {product.description}
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
           {/* Cart Buttons */}
           {quantity === 0 ? (
@@ -127,7 +141,7 @@ const Details = () => {
               <i className="bi bi-cart-plus me-2"></i> Add to Cart
             </button>
           ) : (
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex align-items-center gap-3 mt-3">
               <button className="btn btn-outline-secondary" onClick={handleDecrement}>
                 -
               </button>
