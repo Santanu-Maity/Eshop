@@ -38,6 +38,7 @@ export default function Login() {
               <button type="submit" className="btn btn-primary btn-lg rounded-pill mt-2" style={{ background: "linear-gradient(90deg, #667eea 0%, #764ba2 100%)", border: "none" }}>
                 SUBMIT
               </button>
+              <p className='ms-5'>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
             </div>
 
             <div className="text-center mt-3">

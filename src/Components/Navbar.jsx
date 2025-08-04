@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+
+  const totalItems = JSON.parse(localStorage.getItem("cart"))?.length || 0;
+
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -113,6 +116,7 @@ export default function Navbar() {
                 }}
               >
                 <i className="bi bi-cart3 me-2"></i> Cart
+                <span class="badge text-bg-secondary ms-2">{totalItems}</span>
               </Link>
             </div>
 
@@ -147,9 +151,9 @@ export default function Navbar() {
                 </li>
                 <li><hr className="dropdown-divider" /></li>
                 <li>
-                 <Link className="dropdown-item" to="/Profile">
-  <i className="bi bi-person-lines-fill me-2"></i>Profile
-</Link>
+                  <Link className="dropdown-item" to="/Profile">
+                    <i className="bi bi-person-lines-fill me-2"></i>Profile
+                  </Link>
 
                 </li>
               </ul>
