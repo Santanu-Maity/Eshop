@@ -92,34 +92,53 @@ const Details = () => {
           </div>
         </div>
 
-        {/* Right: Info */}
+        {/* Right: Table + Cart */}
         <div className="col-md-6">
-          <h2 className="fw-bold mb-2">{product.name}</h2>
-          <h4 className="text-success mb-3">
-            ₹{product.price.toLocaleString()}
-          </h4>
-          <p className="text-muted">{product.description}</p>
+          <table className="table table-bordered">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td>{product.name}</td>
+              </tr>
 
-          {/* Rating Stars */}
-          <div className="mb-3">
-            {[...Array(5)].map((_, index) => {
-              const full = index + 1 <= Math.floor(product.rating);
-              const half = index + 0.5 === product.rating;
-              return (
-                <i
-                  key={index}
-                  className={`bi me-1 ${
-                    full
-                      ? "bi-star-fill text-warning"
-                      : half
-                      ? "bi-star-half text-warning"
-                      : "bi-star text-secondary"
-                  }`}
-                />
-              );
-            })}
-            <span className="text-muted ms-1">{product.rating || 0}</span>
-          </div>
+              <tr>
+                <th>Price</th>
+                <td>₹{product.price.toLocaleString()}</td>
+              </tr>
+
+              <tr>
+                <th>Rating</th>
+                <td>
+                  {[...Array(5)].map((_, index) => {
+                    const full = index + 1 <= Math.floor(product.rating);
+                    const half = index + 0.5 === product.rating;
+                    return (
+                      <i
+                        key={index}
+                        className={`bi me-1 ${full
+                          ? "bi-star-fill text-warning"
+                          : half
+                            ? "bi-star-half text-warning"
+                            : "bi-star text-secondary"
+                          }`}
+                      />
+                    );
+                  })}
+                  <span className="text-muted ms-1">{product.rating || 0}</span>
+                </td>
+              </tr>
+
+              <tr>
+                <th style={{ verticalAlign: "middle", width: "150px" }}>Description</th>
+                <td style={{ minHeight: "120px", whiteSpace: "pre-wrap" }}>
+                  {product.description}
+                </td>
+              </tr>
+
+
+
+            </tbody>
+          </table>
 
           {/* Cart Buttons */}
           {quantity === 0 ? (
