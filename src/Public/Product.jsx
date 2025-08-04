@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Tbox2 from './Tbox2';
+import Tbox2 from './Component/Tbox2';
 
 export default function Product() {
   const productList = JSON.parse(localStorage.getItem("productList")) || [];

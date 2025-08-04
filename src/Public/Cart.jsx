@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Cart() {
   return (
+
     <div className="container mt-5 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "60vh" }}>
       <h2 className="mb-4">Your Cart</h2>
       <img
@@ -16,5 +17,12 @@ export default function Cart() {
         Login to Buy
       </Link>
     </div>
-  );
+
+
+
+
+  )
 }
+
+
+

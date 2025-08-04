@@ -57,10 +57,10 @@ const Details = () => {
                       ? "bi-star-half text-warning"
                       : "bi-star text-secondary"
                     }`}
-                ></i>
+                />
               );
             })}
-            <small className="text-muted ms-1">({product.rating})</small>
+            <span className="text-muted ms-1">{product.rating || 0}</span>
           </div>
 
           {/* Add to Cart Button */}
