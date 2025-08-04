@@ -25,6 +25,4 @@ export default function Cart() {
     Login to Buy
   </Link>
 </div>
-  );
-}
-
+ 
