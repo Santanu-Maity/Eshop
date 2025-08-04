@@ -12,7 +12,52 @@ export default function Cart() {
       {Auth ?
         (
           <>
-          
+            <div className="container py-5">
+              <h2 className="mb-4 text-center">Your Shopping Cart</h2>
+              <div className="row">
+                <div className="col-md-12 mb-2">
+                  {cart.map((cart) => (
+                    <div key={cart.id} className="card shadow-sm p-3 d-flex flex-row align-items-center mb-3">
+                      <img
+                        src={cart.image}
+                        alt={cart.name}
+                        style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                        className="rounded"
+                      />
+                      <div className="ms-3 flex-grow-1">
+                        <h5 className="mb-1">{cart.name}</h5>
+                        <p className="mb-1 text-muted">Price:{cart.price} </p>
+
+
+                        <div className="d-flex align-items-center">
+                          <button className="btn btn-outline-secondary btn-sm me-2">-</button>
+                          <input
+                            type="number"
+                            className="form-control form-control-sm w-auto text-center"
+                            value={cart.quantity}
+                            min="1"
+                            style={{ width: "60px" }}
+                            readOnly
+
+                          />
+                          <button className="btn btn-outline-secondary btn-sm ms-2  onClick={handleIncrement}">+</button>
+                        </div>
+                      </div>
+
+                      <button className="btn btn-danger ms-auto">
+                        <p className="mb-1 text-muted">Quantity{cart.quantity} </p>
+                      </button>
+                    </div>))}
+                </div>
+              </div>
+
+              <div className="text-end mt-4">
+                <Link to="3" className="btn btn-success">
+                  Proceed to Checkout
+                </Link>
+              </div>
+            </div>
+
           </>
         ) : (
           <>
