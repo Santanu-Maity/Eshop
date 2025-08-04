@@ -39,7 +39,15 @@ export default function Login() {
                 SUBMIT
               </button>
             </div>
+
+            <div className="text-center mt-3">
+              <span className="text-secondary">Don't have an account? </span>
+              <a href="/Signup" className="text-primary fw-bold">Sign Up</a>
+            </div>
           </form>
+
+
+         
         )}
       </div>
     </div>
