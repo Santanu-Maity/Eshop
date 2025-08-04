@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
-  const totalItems = JSON.parse(localStorage.getItem("cart")).length || 0;
+  const totalItems = JSON.parse(localStorage.getItem("cart"))?.length || 0;
 
   return (
     <nav
