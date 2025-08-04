@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-// Product List
+
 const productList = JSON.parse(localStorage.getItem("productList")) || [];
 
 const Details = () => {
@@ -19,7 +19,7 @@ const Details = () => {
   return (
     <div className="container mt-5">
       <div className="row g-4 align-items-center">
-        {/* Product Image */}
+        {}
         <div className="col-md-6 text-center">
           <div className="bg-light p-3 rounded shadow" style={{ height: "400px", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <img
@@ -36,13 +36,13 @@ const Details = () => {
           </div>
         </div>
 
-        {/* Product Info */}
+        {}
         <div className="col-md-6">
           <h2 className="fw-bold mb-2">{product.name}</h2>
           <h4 className="text-success mb-3">₹{product.price.toLocaleString()}</h4>
           <p className="text-muted">{product.description}</p>
 
-          {/* Dynamic Star Ratings */}
+          {}
           <div className="mb-3">
             {[...Array(5)].map((_, index) => {
               const full = index + 1 <= Math.floor(product.rating);
@@ -63,7 +63,7 @@ const Details = () => {
             <span className="text-muted ms-1">{product.rating || 0}</span>
           </div>
 
-          {/* Add to Cart Button */}
+          {}
           <button className="btn btn-primary px-4">
             <i className="bi bi-cart-plus me-2"></i> Add to Cart
           </button>
@@ -73,5 +73,7 @@ const Details = () => {
     </div>
   );
 };
+
+
 
 export default Details;
