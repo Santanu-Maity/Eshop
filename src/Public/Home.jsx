@@ -16,13 +16,13 @@ export default function Home() {
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="./Img/A1.jpg" class="d-block w-100" alt="..." />
+            <img src="./Img/photo1.jpg" class="d-block w-100" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src="./Img/A2.jpg" class="d-block w-100" alt="..." />
+            <img src="./Img/photo2.jpg" class="d-block w-100" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src="./Img/A3.jpg" class="d-block w-100" alt="..." />
+            <img src="./Img/photo3.jpg" class="d-block w-100" alt="..." />
           </div>
 
         </div>
