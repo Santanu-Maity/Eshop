@@ -2,34 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tbox2 from './Tbox2';
 
-const products = [
-  { id: 1, name: "Speaker", price: 300, image: './img/speaker3.jpg' },
-  { id: 2, name: "Cycle", price: 5202, image: './img/cycle2.jpg' },
-  { id: 3, name: "TV", price: 18999, image: './img/tv2.jpg' },
-  { id: 4, name: "Chair", price: 3590, image: './img/Chair2.jpg' },
-  { id: 5, name: "Coffee", price: 740, image: './img/Coffee.jpg' },
-  { id: 6, name: "Bed", price: 14999, image: './img/bed2.jpg' },
-  { id: 7, name: "Analog Watch", price: 292, image: './img/Analog Watch2.jpg' },
-  { id: 8, name: "Headphone", price: 1799, image: './img/headphone2.jpg' },
-  { id: 9, name: "Wall Clock", price: 215, image: './img/wall clock2.jpg' },
-  { id: 10, name: "Smart Phone", price: 12998, image: './img/smart phone2.jpg' },
-  { id: 11, name: "Shoe", price: 599, image: './img/shoe2.jpg' },
-  { id: 12, name: "Perfume", price: 199, image: './img/perfume.jpg' },
-];
-
 export default function Product() {
+  const productList = JSON.parse(localStorage.getItem("productList")) || [];
   return (
     <>
       <Tbox2 />
-      <div className="container my-4">
+      <div className="container-fluid mt-5 px-4">
         <div className="row g-3">
-          {products.map((product) => (
+          {productList.map((product) => (
             <div key={product.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
               <Link to={`/${product.id}`} style={{ textDecoration: "none" }}>
                 <div className="card h-100 shadow-sm" style={{ borderRadius: "1rem" }}>
                   <div className="card-header text-center fw-bold text-white"
                     style={{
-                      background: "#764ba2",
+                      background: "#4d77e1ff",
                       borderTopLeftRadius: "1rem",
                       borderTopRightRadius: "1rem"
                     }}>
@@ -40,7 +26,7 @@ export default function Product() {
                       src={product.image}
                       alt={product.name}
                       className="img-fluid"
-                      style={{ maxHeight: "120px", objectFit: "contain" }}
+                      style={{ maxHeight: "130px", objectFit: "contain" }}
                     />
                   </div>
                   <div className="card-footer text-center">

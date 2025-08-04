@@ -2,20 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 // Product List
-const productList = [
-  { id: 1, name: "Speaker", price: 300, image: '/img/speaker3.jpg', description: "High-quality Bluetooth speaker with deep bass.", rating: 4 },
-  { id: 2, name: "Cycle", price: 5202, image: '/img/cycle2.jpg', description: "Durable mountain bike for all terrains.", rating: 5 },
-  { id: 3, name: "TV", price: 18999, image: '/img/tv2.jpg', description: "42-inch Smart LED TV with HD resolution.", rating: 4 },
-  { id: 4, name: "Chair", price: 3590, image: '/img/chair2.jpg', description: "Ergonomic office chair with lumbar support.", rating: 3 },
-  { id: 5, name: "Coffee", price: 740, image: '/img/Coffee.jpg', description: "Premium ground coffee beans for espresso.", rating: 4 },
-  { id: 6, name: "Bed", price: 14999, image: '/img/bed2.jpg', description: "Queen size wooden bed with storage.", rating: 5 },
-  { id: 7, name: "Analog Watch", price: 292, image: '/img/analog watch2.jpg', description: "Classic design analog watch for men.", rating: 4 },
-  { id: 8, name: "Headphone", price: 1799, image: './img/headphone2.jpg', description: "Noise-cancelling over-ear headphones.", rating: 4 },
-  { id: 9, name: "Wall Clock", price: 215, image: '/img/wall clock2.jpg', description: "Modern wall clock for home or office.", rating: 3 },
-  { id: 10, name: "Smart Phone", price: 12998, image: '/img/smart phone2.jpg', description: "Affordable smartphone with great features.", rating: 5 },
-  { id: 11, name: "Shoe", price: 599, image: '/img/shoe2.jpg', description: "Comfortable running shoes.", rating: 4.5 },
-  { id: 12, name: "Perfume", price: 199, image: '/img/perfume.jpg', description: "Long-lasting fragrance for daily use.", rating: 3 }
-];
+const productList = JSON.parse(localStorage.getItem("productList")) || [];
 
 const Details = () => {
   const { id } = useParams();
@@ -64,13 +51,12 @@ const Details = () => {
               return (
                 <i
                   key={index}
-                  className={`bi me-1 ${
-                    full
-                      ? "bi-star-fill text-warning"
-                      : half
+                  className={`bi me-1 ${full
+                    ? "bi-star-fill text-warning"
+                    : half
                       ? "bi-star-half text-warning"
                       : "bi-star text-secondary"
-                  }`}
+                    }`}
                 ></i>
               );
             })}
@@ -81,7 +67,7 @@ const Details = () => {
           <button className="btn btn-primary px-4">
             <i className="bi bi-cart-plus me-2"></i> Add to Cart
           </button>
-          
+
         </div>
       </div>
     </div>
