@@ -52,22 +52,22 @@ export default function Profile() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-       <img
-  src="./Img/profile logo2.png"
-  className="d-block w-70"
-  alt="Profile"
-  style={{
-    width: "100px",
-    height: "100px",
-    objectFit: "cover",
-    borderRadius: "50%",
-    margin: "0 auto 15px",
-    display: "block"
-  }}
-/>
+        <img
+          src="./Img/profile logo2.png"
+          className="d-block w-70"
+          alt="Profile"
+          style={{
+            width: "100px",
+            height: "100px",
+            objectFit: "cover",
+            borderRadius: "50%",
+            margin: "0 auto 15px",
+            display: "block"
+          }}
+        />
 
         <h2>User </h2>
-        
+
 
         <button
           style={styles.button}
