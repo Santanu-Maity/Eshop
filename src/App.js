@@ -9,7 +9,6 @@ import Footer from "./Public/Footer";
 import Cart from "./Public/Cart";
 import Details from "./Public/Details";
 import Profile from "./Public/Profile";
-import Privacy from "./Public/Privacy";
 
 
 function App() {
@@ -51,11 +50,10 @@ function App() {
           <Route path="/Details" element={<><Navbar /><Details /></>} />
           <Route path="/:id" element={<><Navbar /><Details /></>} />
           <Route path="/Profile" element={<><Navbar /><Profile /></>} />
-          <Route path="/Privacy" element={<><Navbar /><Privacy /></>} />
         </Routes>
       </div>
 
-      {}
+      {/* Footer will always be at the bottom */}
       <Footer />
     </div>
   );
