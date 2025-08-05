@@ -10,6 +10,7 @@ import Cart from "./Public/Cart";
 import Details from "./Public/Details";
 import Profile from "./Public/Profile";
 import Main from "./Components/Main";
+import Checkout from "./Public/Checkout";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         </Route>
         <Route path="login" element={<><Main component={<Login />} /></>} />
         <Route path="cart" element={<><Main component={<Cart />} /></>} />
+        <Route path="checkout" element={<><Main component={<Checkout/>} /></>} />
       </Route>
 
       {/* private */}
