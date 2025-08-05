@@ -5,11 +5,9 @@ export default function Privacy() {
     <div className="container py-5">
       <h1 className="mb-4">Privacy Policy</h1>
       <p className="text-muted">
-        This is a general-purpose sample Privacy Policy for your company, <strong>Eshop</strong>. It assumes your company is an e-commerce business collecting customer data through your website.
+        This is a general-purpose sample Privacy Policy for our company, <strong>Eshop</strong>. It assumes our company is an e-commerce business collecting customer data through our website.
       </p>
-      <p className="text-warning">
-        ⚠️ <strong>Disclaimer:</strong> This template is for general guidance. For legal compliance (especially with GDPR, CCPA, etc.), consult a legal or data privacy expert to tailor it to your business.
-      </p>
+      
 
       <hr />
 
