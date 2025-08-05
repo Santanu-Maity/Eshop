@@ -3,21 +3,23 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
+  const [Auth, setAuth] = useState(false);
+
   const [totalItems, setTotalItems] = useState(
-  JSON.parse(localStorage.getItem("cart"))?.length || 0
-);
+    JSON.parse(localStorage.getItem("cart"))?.length || 0
+  );
 
-useEffect(() => {
-  const updateCartCount = () => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    setTotalItems(cart.length);
-  };
-  window.addEventListener("cartUpdated", updateCartCount);
+  useEffect(() => {
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      setTotalItems(cart.length);
+    };
+    window.addEventListener("cartUpdated", updateCartCount);
 
-  return () => {
-    window.removeEventListener("cartUpdated", updateCartCount);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("cartUpdated", updateCartCount);
+    };
+  }, []);
 
   return (
     <nav
@@ -31,7 +33,7 @@ useEffect(() => {
         {/* Logo */}
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
-            src="./img/Eshop.png"
+            src="/img/Eshop.png"
             width="140px"
             height="40"
             alt="Eshop Logo"
@@ -130,7 +132,7 @@ useEffect(() => {
                 }}
               >
                 <i className="bi bi-cart3 me-2"></i> Cart
-                <span class="badge text-bg-secondary ms-2">{totalItems}</span>
+                <span className="badge text-bg-secondary ms-2">{totalItems}</span>
               </Link>
             </div>
 
@@ -163,13 +165,14 @@ useEffect(() => {
                     <i className="bi bi-person-plus me-2"></i>Signup
                   </Link>
                 </li>
-                <li><hr className="dropdown-divider" /></li>
-                <li>
-                  <Link className="dropdown-item" to="/Profile">
-                    <i className="bi bi-person-lines-fill me-2"></i>Profile
-                  </Link>
-
-                </li>
+                {Auth ? (<>
+                  <li><hr className="dropdown-divider" /></li>
+                  <li>
+                    <Link className="dropdown-item" to="/auth/profile">
+                      <i className="bi bi-person-lines-fill me-2"></i>Profile
+                    </Link>
+                  </li>
+                </>) : (null)}
               </ul>
             </div>
           </div>
