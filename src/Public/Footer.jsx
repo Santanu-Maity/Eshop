@@ -1,4 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+  faLinkedinIn
+} from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,17 +27,17 @@ const Footer = () => {
         <div className="row">
           <div className="col text-center">
             <span className="me-3">Follow us:</span>
-            <a href="https://facebook.com" className="text-light me-2">
-              <i className="fab fa-facebook-f"></i>
+            <a href="https://facebook.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faFacebookF} />
             </a>
-            <a href="https://twitter.com" className="text-light me-2">
-              <i className="fab fa-twitter"></i>
+            <a href="https://twitter.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="https://instagram.com" className="text-light me-2">
-              <i className="fab fa-instagram"></i>
+            <a href="https://instagram.com" className="text-light me-2" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="https://linkedin.com" className="text-light">
-              <i className="fab fa-linkedin-in"></i>
+            <a href="https://linkedin.com" className="text-light" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
           </div>
         </div>
