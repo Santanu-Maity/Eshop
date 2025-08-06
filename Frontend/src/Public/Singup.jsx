@@ -3,7 +3,7 @@ import { message, Select } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
-  const [fname, setFname] = useState('');
+  const [fullname, setFname] = useState('');
   const [contact, setContact] = useState('');
   const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
@@ -53,12 +53,13 @@ export default function Signup() {
     }
     try {
       const userData = {
-        fname,
+        fullname,
         contact,
         gender,
         email,
         password,
       };
+      console.log(userData);
       success();
       setTimeout(() => {
         natigate('/login');
