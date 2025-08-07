@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const { createUser, loginUser, getUSerById, setAddress, getAddress, setwishlist, getWishlist, getiOrder, setiorder, setcart, getcart, setpay, getpay } = require('../models/userModule');
+const { createUser, loginUser, getUSerById, setUserAddress, getUserOrder, setUserOrder, setUserCart, getUserCart, getUserAddress, setUserReview, setUserWishlist } = require('../models/userModule');
 const express = require('express');
-const { get } = require('../routes/userRoute');
 
 const registerUser = async (req, res) => {
     const { fullname, contact, gender, email, password } = req.body;
@@ -53,145 +52,97 @@ const authUser = async (req, res) => {
 const getUserDetails = async (req, res) => {
     const { id } = req.body;
     try {
-        const user = await getUSerById(id);
-        const address = await getAddress(id);
-        user.address = address;
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        if (user) {
-            res.status(200).json({ user });
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-        res.status(400).json({ message: 'Something wrong' });
-    }
-};
-
-const setUserAddress = async (req, res) => {
-    const { id, state, pin, address, district } = req.body;
-    try {
-        const result = await setAddress(id, state, pin, address, district);
-        if (result.acknowledged) {
-            res.status(201).json({ message: 'Address set successfully' });
-        }
-        else {
-            res.status(400).json({ message: 'Failed to set address' });
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-const setUserWishlist = async (req, res) => {
-    const { uid, pid } = req.body;
-    try {
-        const result = await setwishlist(uid, pid);
-        if (result.acknowledged) {
-            res.status(201).json({ message: 'Wishlist set successfully' });
-        } else {
-            res.status(400).json({ message: 'Failed to set wishlist' });
+        const userdetails = await getUSerById(id);
+        const userAddress = await getUserAddress(id);
+        const userOrder = await getUserOrder(id)
+        const userCart = await getUserCart(id);
+        userdetails.order = userOrder;
+        userdetails.address = userAddress;
+        userdetails.cart = userCart;
+        userdetails.password = ""; // Exclude password from response
+        if (userdetails) {
+            res.status(200).json({ userdetails });
         }
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-const getUserWishlist = async (req, res) => {
-    const { id } = req.body;
+const setuserAddress = async (req, res) => {
+    const { userId, pin, address, city, state, district } = req.body;
     try {
-        const wishlist = await getWishlist(id);
-        if (!wishlist) {
-            return res.status(404).json({ message: 'Wishlist not found' });
-        }
-        res.status(200).json({ wishlist });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-const setorder = async (req, res) => {
-    const { uid, pid, quantity, orderdate, status } = req.body;
-    try {
-        const result = await setiorder(uid, pid, quantity, orderdate, status);
-        if (result.acknowledged) {
-            res.status(201).json({ message: 'Order set successfully' });
+        const result = await setUserAddress(userId, pin, address, city, state, district);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Address added successfully' });
         } else {
-            res.status(400).json({ message: 'Failed to set order' });
+            res.status(400).json({ message: 'Address addition failed' });
         }
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-const getOrder = async (req, res) => {
-    const { id } = req.body;
-    try {
-        const iorders = await getiOrder(id);
-        if (!iorders) {
-            return res.status(404).json({ message: 'Orders not found' });
-        }
-        res.status(200).json({ iorders });
     }
     catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-const settocart = async (req, res) => {
-    const { uid, pid, quantity } = req.body;
+const setuserOrder = async (req, res) => {
+    const { userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount } = req.body;
     try {
-        const result = await setcart(uid, pid, quantity,);
-        if (result.acknowledged) {
-            res.status(201).json({ message: 'Add to Cart successfully' });
+        const result = await setUserOrder(userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Order added successfully' });
         } else {
-            res.status(400).json({ message: 'Failed to Cart' });
+            res.status(400).json({ message: 'Order addition failed' });
+
         }
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-const gettocart = async (req, res) => {
-    const { id } = req.body;
-    try {
-        const cart = await getcart(id);
-        if (!cart) {
-            return res.status(404).json({ message: 'Cart Not found' });
-        }
-        res.status(200).json({ cart });
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-const setpayments = async (req, res) => {
-    const {orderid,uid,paymethod,paystatus,paydate,tid,amountpaid } = req.body;
-    try {
-        const result = await setpay(orderid,uid,paymethod,paystatus,paydate,tid,amountpaid);
-        if (result.acknowledged) {
-            res.status(201).json({ message: 'Payments Done successfully' });
-        } else {
-            res.status(400).json({ message: 'Payments Failed' });
-        }
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-const getpayments = async (req, res) => {
-    const { id } = req.body;
-    try {
-        const pay = await getpay(id);
-        if (!pay) {
-            return res.status(404).json({ message: 'Payments Not found' });
-        }
-        res.status(200).json({ pay });
     }
     catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
+const userCart = async (req, res) => {
+    const { userId, product_id, product_quantity } = req.body;
+    try {
+        const result = await setUserCart(userId, product_id, product_quantity);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Cart added successfully' });
+        } else {
+            res.status(400).json({ message: 'Cart addition failed' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+ 
+const userReview = async (req, res) => {
+    const { userId, product_id, review } = req.body;
+    try {
+        const result = await setUserReview(userId, product_id, review);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Review added successfully' });
+        } else {
+            res.status(400).json({ message: 'Review addition failed' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const UserWishlist = async (req, res) => {
+    const { userId, product_id} = req.body;
+    try {
+        const result = await setUserWishlist(userId, product_id);
+        if (result.acknowledged === true) {
+            res.status(201).json({ message: 'Wishlist added successfully' });
+        }   else {
+            res.status(400).json({ message: 'Wishlist addition failed' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 
 
@@ -200,13 +151,10 @@ module.exports = {
     registerUser,
     authUser,
     getUserDetails,
-    setUserAddress,
-    setUserWishlist,
-    getUserWishlist,
-    getOrder,
-    setorder,
-    settocart,
-    gettocart,
-    setpayments,
-    getpayments
+    setuserAddress,
+    setuserOrder,
+    userCart,
+    setUserReview,
+    UserWishlist
+   
 };
