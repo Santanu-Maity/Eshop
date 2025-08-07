@@ -138,7 +138,7 @@ export default function Navbar() {
               </Link>
             </div>
             {/* Wishlist Button */}
-            <div className="ms-3">
+            {/* <div className="ms-3">
               <Link
                 className="btn btn-sm btn-warning fw-bold px-3 d-flex align-items-center"
                 to="/Cart"
@@ -152,7 +152,7 @@ export default function Navbar() {
               >
                 Wishlist
               </Link>
-            </div>
+            </div> */}
 
             {/* Login Dropdown */}
             <div className="ms-3 dropdown">
