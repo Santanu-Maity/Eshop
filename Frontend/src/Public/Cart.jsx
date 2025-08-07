@@ -37,6 +37,11 @@ export default function Cart() {
       }
     }
 
+    updatedCart = updatedCart.map(item => ({
+      ...item,
+      price: Number(item.price), // Ensure unit price
+    }));
+
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     window.dispatchEvent(new Event("cartUpdated")); // ✅ Trigger update
@@ -90,17 +95,19 @@ export default function Cart() {
                 <ul className="list-group list-group-flush">
                   {cart.map((item) => (
                     <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
-                      {item.name}
+                      <div>
+                        <div>{item.name}</div>
+                        <small className="text-muted">Quantity: {item.quantity}</small>
+                      </div>
                       <span>₹{item.price * item.quantity}</span>
                     </li>
                   ))}
                   <li className="list-group-item d-flex justify-content-between align-items-center">
                     <strong>Total</strong>
-                    <strong>
-                      ₹{cart.reduce((total, item) => total + item.price * item.quantity, 0)}
-                    </strong>
+                    <strong>₹{cart.reduce((total, item) => total + item.price * item.quantity, 0)}</strong>
                   </li>
                 </ul>
+
                 <div className="text-end mt-4">
                   <Link to="/checkout" className="btn btn-success">
                     Checkout

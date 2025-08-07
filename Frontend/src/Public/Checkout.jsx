@@ -8,7 +8,8 @@ export default function Checkout() {
     setCart(storedCart);
   }, []);
 
-  const totalAmount = cart.reduce((acc, item) => acc + item.price, 0);
+const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
 
   return (
     <div className="container my-5">
@@ -60,9 +61,11 @@ export default function Checkout() {
                   >
                     <div>
                       <h6 className="mb-1">{item.name}</h6>
-                      <small className="text-muted">Qty: 1</small>
+                      <small className="text-muted">Qty: {item.quantity}</small>
+
                     </div>
-                    <span className="fw-bold">₹{item.price.toLocaleString()}</span>
+                    <span className="fw-bold">₹{(item.price * item.quantity).toLocaleString()}</span>
+
                   </li>
                 ))
               )}
