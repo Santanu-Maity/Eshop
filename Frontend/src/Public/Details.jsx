@@ -177,7 +177,11 @@ const Details = () => {
                   onClick={toggleWishlist}
                   title="Add to Wishlist"
                 >
-                  <i className={`bi ${isWishlisted ? "bi-heart-fill" : "bi-heart"}`}></i>
+                  <i
+                    className={`bi ${
+                      isWishlisted ? "bi-heart-fill" : "bi-heart"
+                    }`}
+                  ></i>
                 </button>
               </div>
 
