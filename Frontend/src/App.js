@@ -62,7 +62,8 @@ function App() {
         <Route path="tnc" element={<><Main component={<TnC/>} /></>} />
         <Route path ="wishlist" element={<><Main component={<Wishlist />} /></>} />
         <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
-        <Route path="thankyou" element={<><Main component={<ThankYou />} /></>} />
+        <Route path="/thank-you" element={<ThankYou />} />
+
       </Route>
 
       {/* private */}
