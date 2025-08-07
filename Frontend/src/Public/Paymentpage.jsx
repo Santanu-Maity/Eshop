@@ -1,3 +1,4 @@
+// PaymentPage.js
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -13,10 +14,9 @@ export default function PaymentPage() {
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCVV, setCardCVV] = useState("");
 
-  const totalAmount = location.state?.totalAmount || 0;
+  const totalAmount = location.state?.totalAmount || 999; // dummy amount
 
   const handlePayment = () => {
-    // Simple validation
     if (paymentMethod === "UPI" && !upiId) return alert("Please enter UPI ID");
     if (
       paymentMethod === "Card" &&
@@ -37,7 +37,6 @@ export default function PaymentPage() {
       <div className="card shadow p-4 rounded-4 border-0 mx-auto" style={{ maxWidth: "500px" }}>
         <h4 className="mb-3 text-secondary">Total: ₹{totalAmount.toLocaleString()}</h4>
 
-        {/* Payment Method Selection */}
         <div className="mb-3">
           <label className="form-label fw-semibold">Select Payment Method</label>
           <select
@@ -51,7 +50,6 @@ export default function PaymentPage() {
           </select>
         </div>
 
-        {/* Dynamic Fields */}
         {paymentMethod === "UPI" && (
           <div className="mb-3">
             <label className="form-label fw-semibold">Enter UPI ID</label>
@@ -112,14 +110,16 @@ export default function PaymentPage() {
           </>
         )}
 
-        {/* Pay Button */}
         {!paid ? (
           <button className="btn btn-primary w-100 mt-3 rounded-4" onClick={handlePayment}>
             <i className="bi bi-currency-rupee me-2"></i>Pay Now
           </button>
         ) : (
-          <div className="alert alert-success text-center mt-3 rounded-3">
-            Payment Successful! Redirecting...
+          <div className="text-center mt-4">
+            <div className="alert alert-success fw-semibold fs-5 rounded-3">
+              ✅ Payment Successful!
+            </div>
+            <p className="text-secondary">Redirecting to Thank You page...</p>
           </div>
         )}
       </div>

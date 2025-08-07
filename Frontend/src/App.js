@@ -16,7 +16,7 @@ import Privacy from "./Public/Privacy";
 import TnC from "./Public/TnC";
 import Wishlist from "./Public/Wishlist";
 import PaymentPage from "./Public/Paymentpage";
-
+import ThankYou from "./Public/Thankyou";
 
 function App() {
 
@@ -62,6 +62,7 @@ function App() {
         <Route path="tnc" element={<><Main component={<TnC/>} /></>} />
         <Route path ="wishlist" element={<><Main component={<Wishlist />} /></>} />
         <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
+        <Route path="thankyou" element={<><Main component={<ThankYou />} /></>} />
       </Route>
 
       {/* private */}

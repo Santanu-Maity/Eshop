@@ -3,14 +3,17 @@ import { useNavigate } from "react-router-dom"; // ✅ Add this
 
 export default function Checkout() {
   const [cart, setCart] = useState([]);
-  const navigate = useNavigate(); // ✅ Initialize navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
-  const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalAmount = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className="container my-5">
@@ -23,24 +26,44 @@ export default function Checkout() {
             <form>
               <div className="mb-3">
                 <label className="form-label fw-semibold">Full Name</label>
-                <input type="text" className="form-control rounded-3" placeholder="John Doe" />
+                <input
+                  type="text"
+                  className="form-control rounded-3"
+                  placeholder="Virat Kohli"
+                />
               </div>
               <div className="mb-3">
                 <label className="form-label fw-semibold">Email</label>
-                <input type="email" className="form-control rounded-3" placeholder="john@example.com" />
+                <input
+                  type="email"
+                  className="form-control rounded-3"
+                  placeholder="viratkohli@gmail.com"
+                />
               </div>
               <div className="mb-3">
                 <label className="form-label fw-semibold">Address</label>
-                <input type="text" className="form-control rounded-3" placeholder="123 Street Name" />
+                <input
+                  type="text"
+                  className="form-control rounded-3"
+                  placeholder="10 London"
+                />
               </div>
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <label className="form-label fw-semibold">City</label>
-                  <input type="text" className="form-control rounded-3" placeholder="City" />
+                  <input
+                    type="text"
+                    className="form-control rounded-3"
+                    placeholder="City"
+                  />
                 </div>
                 <div className="col-md-6 mb-3">
                   <label className="form-label fw-semibold">Zip Code</label>
-                  <input type="text" className="form-control rounded-3" placeholder="123456" />
+                  <input
+                    type="text"
+                    className="form-control rounded-3"
+                    placeholder="123456"
+                  />
                 </div>
               </div>
             </form>
@@ -66,13 +89,17 @@ export default function Checkout() {
                       <h6 className="mb-1">{item.name}</h6>
                       <small className="text-muted">Qty: {item.quantity}</small>
                     </div>
-                    <span className="fw-bold">₹{(item.price * item.quantity).toLocaleString()}</span>
+                    <span className="fw-bold">
+                      ₹{(item.price * item.quantity).toLocaleString()}
+                    </span>
                   </li>
                 ))
               )}
               <li className="list-group-item d-flex justify-content-between align-items-center rounded-3 border-0 bg-white mt-3">
                 <strong className="text-dark fs-5">Total</strong>
-                <strong className="text-dark fs-5">₹{totalAmount.toLocaleString()}</strong>
+                <strong className="text-dark fs-5">
+                  ₹{totalAmount.toLocaleString()}
+                </strong>
               </li>
             </ul>
 
