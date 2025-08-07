@@ -16,7 +16,7 @@ import Checkout from "./Public/Checkout";
 function App() {
 
   const productList = [
-    { id: 1, name: "Speaker", price: 300, image: '/img/speaker.jpg', description: "High-quality Bluetooth speaker with deep bass.", rating: 4 },
+    { id: 1, name: "Sound Box", price: 300, image: '/img/speaker.jpg', description: "High-quality Bluetooth speaker with deep bass.", rating: 4 },
     { id: 2, name: "Cycle", price: 5202, image: '/img/cycle.jpg', description: "Durable mountain bike for all terrains.", rating: 5 },
     { id: 3, name: "TV", price: 18999, image: '/img/tv.jpg', description: "42-inch Smart LED TV with HD resolution.", rating: 4 },
     { id: 4, name: "Chair", price: 3590, image: '/img/chair.jpg', description: "Ergonomic office chair with lumbar support.", rating: 3 },
@@ -30,8 +30,8 @@ function App() {
     { id: 12, name: "Perfume", price: 199, image: '/img/perfume.jpg', description: "Long-lasting fragrance for daily use.", rating: 3 },
     { id: 13, name: "Washing Machine", price: 6490, image: '/img/washing machine.jpg' },
     { id: 14, name: "Smart Watch", price: 1299, image: '/img/smart Watch.jpg' },
-    { id: 15, name: "Neck band", price: 699, image: '/img/neck band.jpg' },
-    { id: 16, name: "Buds", price: 1399, image: '/img/buds.jpg' },
+    { id: 15, name: "Neckband headphone", price: 699, image: '/img/neck band.jpg' },
+    { id: 16, name: "Ear Buds", price: 1399, image: '/img/buds.jpg' },
     { id: 17, name: "Laptop", price: 49500, image: '/img/laptop.jpg' },
     { id: 18, name: "T-Shirt", price: 398, image: '/img/t-shirt.jpg' },
   ];
