@@ -18,7 +18,7 @@ const Footer = () => {
             <h4 className="fw-bold mb-1">Eshop</h4>
             <p className="mb-0 small">&copy; {currentYear} Eshop. All rights reserved.</p>
             <p className="mb-0 small">Mail Us: support@eshop.com</p>
-            <p className="mb-0 small">Registered Office: 123 Eshop St, City, Country</p>
+            <p className="mb-0 small">Registered Office: Baruipur, South 24 Parganas, West Bengal</p>
           </div>
           <div className="col-md-6 text-center text-md-end">
             <a href="/privacy" className="text-light text-decoration-none me-3 hover-underline">Privacy Policy</a>

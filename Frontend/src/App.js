@@ -13,6 +13,7 @@ import Main from "./Components/Main";
 import Checkout from "./Public/Checkout";
 import Privacy from "./Public/Privacy";
 import TnC from "./Public/TnC";
+import Wishlist from "./Public/Wishlist";
 
 
 function App() {
@@ -62,6 +63,11 @@ function App() {
       <Route path="/auth">
         <Route path="profile" element={<><Main component={<Profile />} /></>} />
       </Route>
+
+      <Route path="/auth">
+        <Route path="wishlist" element={<><Main component={<Wishlist />} /></>} />
+      </Route>
+
 
       <Route path="*" element={<><Main component={<h2 className="text-danger text-center mt-5">404 Not Found</h2>} /></>} />
     </Routes>
