@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Tbox from './Component/Tbox';
 
 export default function MostBuy() {
   const products = [
@@ -49,4 +50,3 @@ export default function MostBuy() {
     </>
   )
 }
-

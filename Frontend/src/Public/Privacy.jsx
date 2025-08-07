@@ -125,7 +125,7 @@ export default function Privacy() {
       <p>
         <strong>Eshop Privacy Team</strong><br />
         Email: <a href="mailto:privacy@eshop.com">privacy@eshop.com</a><br />
-        Phone: +1 (800) 123-4567
+        Phone: +91 9330565273
       </p>
     </div>
   );

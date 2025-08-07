@@ -22,7 +22,7 @@ export default function Wishlist() {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-4">❤️ Your Wishlist</h2>
+      <h2 className="text-center mb-4">Your Wishlist</h2>
 
       {wishlist.length === 0 ? (
         <p className="text-center text-muted">No items in your wishlist yet.</p>
