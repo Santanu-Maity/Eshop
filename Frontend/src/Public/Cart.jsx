@@ -127,9 +127,17 @@ export default function Cart() {
             className="mb-4"
           />
           <p className="fs-5 text-secondary mb-4">Your cart is currently empty.</p>
-          <Link to="/Login" className="btn btn-primary">
-            Login to Buy
+
+          <Link to="/Login" className="btn btn-success mb-3">
+            Login to Buy <br />
           </Link>
+
+
+          <Link to="/" className="btn btn-primary">
+            Continue Shopping
+          </Link>
+
+
         </div>
       )}
     </>

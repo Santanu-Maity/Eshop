@@ -1,33 +1,41 @@
-const {grtproductdatabase} = require('../models/database');
+const {getProductDatabase} = require('../models/database');// Tader code getuser database chilo ami get product data base use korechi
+const bcryptjs = require('bcryptjs');
 const { ObjectId } = require('mongodb');
 
-const setproduct = async (pid,name, price, description, categoryid, stockquantity, image) => {
-    const db = await grtproductdatabase();
+const createProduct = async (name, price, description, category, image, quantity, discount_amount) => {
+    const db = await getUserDatabase();
     const collection = db.collection('product');
-    const newObjectId = new ObjectId().toString(); 
+    const newObjectId = new ObjectId().toString();
     const productData = {
-        _id: productObjectId,
-        productid: pid,
+        _id: newObjectId,
         name,
         price,
         description,
-        categoryid,
-        stockquantity,
+        category,
         image,
+        quantity,
+        discount_amount: discount_amount || 0,
     };
     const result = await collection.insertOne(productData);
     return result;
 }
-const getproduct = async (pid) => {
-    const db = await grtproductdatabase();
+
+const getProductById = async (_id) => {
+    const db = await getUserDatabase();
     const collection = db.collection('product');
-    const product = await collection.findOne({ productid: pid });
-    if (!product) {
-        throw new Error('Product not found');
-    }
-    return product;
-}
+    const result = await collection.findOne({ _id });
+    return result;
+};
+
+const getProducts = async () => {
+    const db = await getUserDatabase();
+    const collection = db.collection('product');
+    const products = await collection.find().toArray();
+    return products;
+};
+
 module.exports = {
-    setproduct,
-    getproduct,
+    createProduct,
+    getProductById,
+    getProducts
 };
