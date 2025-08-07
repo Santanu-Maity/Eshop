@@ -15,6 +15,7 @@ import Checkout from "./Public/Checkout";
 import Privacy from "./Public/Privacy";
 import TnC from "./Public/TnC";
 import Wishlist from "./Public/Wishlist";
+import PaymentPage from "./Public/Paymentpage";
 
 
 function App() {
@@ -59,6 +60,8 @@ function App() {
         <Route path="checkout" element={<><Main component={<Checkout/>} /></>} />
         <Route path="privacy" element={<><Main component={<Privacy/>} /></>} />
         <Route path="tnc" element={<><Main component={<TnC/>} /></>} />
+        <Route path ="wishlist" element={<><Main component={<Wishlist />} /></>} />
+        <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
       </Route>
 
       {/* private */}
