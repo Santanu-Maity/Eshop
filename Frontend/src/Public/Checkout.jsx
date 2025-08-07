@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Add this
 
 export default function Checkout() {
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate(); // ✅ Initialize navigation
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
-const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
+  const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="container my-5">
@@ -52,7 +53,9 @@ const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity,
             <h4 className="mb-4 text-secondary">Order Summary</h4>
             <ul className="list-group mb-3">
               {cart.length === 0 ? (
-                <li className="list-group-item text-muted text-center border-0 bg-transparent">Your cart is empty</li>
+                <li className="list-group-item text-muted text-center border-0 bg-transparent">
+                  Your cart is empty
+                </li>
               ) : (
                 cart.map((item, index) => (
                   <li
@@ -62,10 +65,8 @@ const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity,
                     <div>
                       <h6 className="mb-1">{item.name}</h6>
                       <small className="text-muted">Qty: {item.quantity}</small>
-
                     </div>
                     <span className="fw-bold">₹{(item.price * item.quantity).toLocaleString()}</span>
-
                   </li>
                 ))
               )}
@@ -74,7 +75,13 @@ const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity,
                 <strong className="text-dark fs-5">₹{totalAmount.toLocaleString()}</strong>
               </li>
             </ul>
-            <button className="btn btn-lg btn-primary w-100 mt-3 rounded-4" disabled={cart.length === 0}>
+
+            {/* ✅ Updated Button with Redirect */}
+            <button
+              className="btn btn-lg btn-primary w-100 mt-3 rounded-4"
+              disabled={cart.length === 0}
+              onClick={() => navigate("/payment", { state: { totalAmount } })} // ✅ Redirect with total
+            >
               <i className="bi bi-credit-card-fill me-2"></i>Proceed to Pay
             </button>
           </div>
