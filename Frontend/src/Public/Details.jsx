@@ -1,12 +1,15 @@
+// src/Details.jsx
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
-const productList = JSON.parse(localStorage.getItem("productList")) || [];
 
 const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = productList.find((p) => p.id === parseInt(id)) || 0;
+
+  const productList =
+    JSON.parse(localStorage.getItem("productList"))?.filter(Boolean) || [];
+
+  const product = productList.find((p) => p.id === parseInt(id)) || null;
 
   const [quantity, setQuantity] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -80,143 +83,137 @@ const Details = () => {
     setIsWishlisted(!isWishlisted);
   };
 
-  if (id && !product) {
+  if (!product) {
     return (
       <div className="container text-center mt-5">
         <h2 className="text-danger">❌ Product Not Found</h2>
+        <button className="btn btn-primary mt-3" onClick={() => navigate("/")}>
+          Go Back to Home
+        </button>
       </div>
     );
   }
 
   return (
     <div className="container mt-5">
-      {id && !product ? (
-        <h2 className="text-danger">❌ Product Not Found</h2>
-      ) : (
-        <>
-          <div className="row g-4 align-items-center">
-            {/* Left: Image */}
-            <div className="col-md-6 text-center">
-              <div
-                className="bg-light p-3 rounded shadow"
-                style={{
-                  height: "400px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="rounded shadow-sm"
-                  style={{
-                    maxHeight: "100%",
-                    maxWidth: "100%",
-                    objectFit: "contain",
-                  }}
-                  draggable="false"
-                />
-              </div>
-            </div>
-
-            {/* Right: Details */}
-            <div className="col-md-6">
-              <table
-                className="table table-bordered border-dark"
-                style={{ borderWidth: "2px" }}
-              >
-                <tbody>
-                  <tr>
-                    <th className="fw-bold bg-light" style={{ width: "150px" }}>
-                      Name
-                    </th>
-                    <td>{product.name}</td>
-                  </tr>
-                  <tr>
-                    <th className="fw-bold bg-light">Price</th>
-                    <td>₹{product.price.toLocaleString()}</td>
-                  </tr>
-                  <tr>
-                    <th className="fw-bold bg-light">Rating</th>
-                    <td>
-                      {[...Array(5)].map((_, index) => {
-                        const full = index + 1 <= Math.floor(product.rating);
-                        const half = index + 0.5 === product.rating;
-                        return (
-                          <i
-                            key={index}
-                            className={`bi me-1 ${
-                              full
-                                ? "bi-star-fill text-warning"
-                                : half
-                                ? "bi-star-half text-warning"
-                                : "bi-star text-secondary"
-                            }`}
-                          />
-                        );
-                      })}
-                      <span className="text-muted ms-1">
-                        {product.rating || 0}
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th className="fw-bold bg-light align-top">Description</th>
-                    <td style={{ whiteSpace: "pre-wrap" }}>
-                      {product.description}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              {/* Wishlist Button */}
-              <div className="d-flex justify-content-end mb-3">
-                <button
-                  className="btn btn-outline-danger"
-                  onClick={toggleWishlist}
-                  title="Add to Wishlist"
-                >
-                  <i
-                    className={`bi ${
-                      isWishlisted ? "bi-heart-fill" : "bi-heart"
-                    }`}
-                  ></i>
-                </button>
-              </div>
-
-              {/* Cart Buttons */}
-              {quantity === 0 ? (
-                <button
-                  className="btn btn-primary px-4"
-                  onClick={handleAddToCart}
-                >
-                  <i className="bi bi-cart-plus me-2"></i> Add to Cart
-                </button>
-              ) : (
-                <div className="d-flex align-items-center gap-3 mt-3">
-                  <button
-                    className="btn btn-outline-secondary"
-                    onClick={handleDecrement}
-                  >
-                    -
-                  </button>
-                  <span>{quantity}</span>
-                  <button
-                    className="btn btn-outline-secondary"
-                    onClick={handleIncrement}
-                  >
-                    +
-                  </button>
-                  <button className="btn btn-success" disabled>
-                    In Cart
-                  </button>
-                </div>
-              )}
-            </div>
+      <div className="row g-4 align-items-center">
+        {/* Left: Image */}
+        <div className="col-md-6 text-center">
+          <div
+            className="bg-light p-3 rounded shadow"
+            style={{
+              height: "400px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="rounded shadow-sm"
+              style={{
+                maxHeight: "100%",
+                maxWidth: "100%",
+                objectFit: "contain",
+              }}
+              draggable="false"
+            />
           </div>
-        </>
-      )}
+        </div>
+
+        {/* Right: Details */}
+        <div className="col-md-6">
+          <table
+            className="table table-bordered border-dark"
+            style={{ borderWidth: "2px" }}
+          >
+            <tbody>
+              <tr>
+                <th className="fw-bold bg-light" style={{ width: "150px" }}>
+                  Name
+                </th>
+                <td>{product.name}</td>
+              </tr>
+              <tr>
+                <th className="fw-bold bg-light">Price</th>
+                <td>₹{product.price.toLocaleString()}</td>
+              </tr>
+              <tr>
+                <th className="fw-bold bg-light">Rating</th>
+                <td>
+                  {[...Array(5)].map((_, index) => {
+                    const full = index + 1 <= Math.floor(product.rating || 0);
+                    const half = index + 0.5 === product.rating;
+                    return (
+                      <i
+                        key={index}
+                        className={`bi me-1 ${
+                          full
+                            ? "bi-star-fill text-warning"
+                            : half
+                            ? "bi-star-half text-warning"
+                            : "bi-star text-secondary"
+                        }`}
+                      />
+                    );
+                  })}
+                  <span className="text-muted ms-1">
+                    {product.rating || 0}
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th className="fw-bold bg-light align-top">Description</th>
+                <td style={{ whiteSpace: "pre-wrap" }}>
+                  {product.description || "No description available."}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          {/* Wishlist Button */}
+          <div className="d-flex justify-content-end mb-3">
+            <button
+              className="btn btn-outline-danger"
+              onClick={toggleWishlist}
+              title="Add to Wishlist"
+            >
+              <i
+                className={`bi ${
+                  isWishlisted ? "bi-heart-fill" : "bi-heart"
+                }`}
+              ></i>
+            </button>
+          </div>
+
+          {/* Cart Buttons */}
+          {quantity === 0 ? (
+            <button className="btn btn-primary px-4" onClick={handleAddToCart}>
+              <i className="bi bi-cart-plus me-2"></i> Add to Cart
+            </button>
+          ) : (
+            <div className="d-flex align-items-center gap-3 mt-3">
+              <button
+                className="btn btn-outline-secondary"
+                onClick={handleDecrement}
+              >
+                -
+              </button>
+              <span>{quantity}</span>
+              <button
+                className="btn btn-outline-secondary"
+                onClick={handleIncrement}
+              >
+                +
+              </button>
+              <button className="btn btn-success" disabled>
+                In Cart
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

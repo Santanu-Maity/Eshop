@@ -17,6 +17,9 @@ import TnC from "./Public/TnC";
 import Wishlist from "./Public/Wishlist";
 import PaymentPage from "./Public/Paymentpage";
 import ThankYou from "./Public/Thankyou";
+import Notification from "./Public/Notification";
+import SearchResults from "./Public/SearchResults";
+import Aboutus from "./Public/Aboutus";
 
 function App() {
 
@@ -61,6 +64,9 @@ function App() {
         <Route path="tnc" element={<><Main component={<TnC/>} /></>} />
         <Route path ="wishlist" element={<><Main component={<Wishlist />} /></>} />
         <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
+        <Route path="notification" element={<><Main component={<Notification />} /></>} />
+        <Route path="searchresults" element={<><Main component={<SearchResults />} /></>} />
+        <Route path="aboutus" element={<><Main component={<Aboutus />} /></>} />
         <Route path="/thank-you" element={<ThankYou />} />
 
       </Route>

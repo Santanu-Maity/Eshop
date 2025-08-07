@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Tbox from './Component/Tbox';
+// src/MostBuy.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function MostBuy() {
   const products = [
@@ -10,43 +10,41 @@ export default function MostBuy() {
     { id: 16, name: "Smart Phone", price: 12998, image: '/img/smart phone.jpg', description: "Affordable smartphone with great features.", rating: 5 },
     { id: 17, name: "Laptop", price: 49500, image: '/img/laptop.jpg' },
     { id: 18, name: "T-Shirt", price: 398, image: '/img/t-shirt.jpg' },
+  ];
 
-
-  ]
   return (
-    <>
-
-      <div className="container-fluid mt-5 px-4">
-        <div className="row g-3">
-          {products.map((product) => (
-            <div key={product.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
-              <Link to={`/${product.id}`} style={{ textDecoration: "none" }}>
-                <div className="card h-100 shadow-sm" style={{ borderRadius: "1rem" }}>
-                  <div className="card-header text-center fw-bold text-white"
-                    style={{
-                      background: "#0955a0ff",
-                      borderTopLeftRadius: "1rem",
-                      borderTopRightRadius: "1rem"
-                    }}>
-                    {product.name}
-                  </div>
-                  <div className="card-body d-flex align-items-center justify-content-center p-2">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="img-fluid"
-                      style={{ maxHeight: "130px", objectFit: "contain" }}
-                    />
-                  </div>
-                  <div className="card-footer text-center">
-                    <span className="fw-bold text-dark">₹{product.price}</span>
-                  </div>
+    <div className="container-fluid mt-5 px-4">
+      <div className="row g-3">
+        {products.map((product) => (
+          <div key={product.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
+            <Link to={`/product/${product.id}`} style={{ textDecoration: "none" }}>
+              <div className="card h-100 shadow-sm" style={{ borderRadius: "1rem" }}>
+                <div
+                  className="card-header text-center fw-bold text-white"
+                  style={{
+                    background: "#0955a0ff",
+                    borderTopLeftRadius: "1rem",
+                    borderTopRightRadius: "1rem",
+                  }}
+                >
+                  {product.name}
                 </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+                <div className="card-body d-flex align-items-center justify-content-center p-2">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="img-fluid"
+                    style={{ maxHeight: "130px", objectFit: "contain" }}
+                  />
+                </div>
+                <div className="card-footer text-center">
+                  <span className="fw-bold text-dark">₹{product.price}</span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
-    </>
-  )
+    </div>
+  );
 }
