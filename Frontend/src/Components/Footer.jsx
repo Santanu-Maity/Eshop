@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
           <div className="col-md-6 text-center text-md-end">
             <a href="/privacy" className="text-light text-decoration-none me-3 hover-underline">Privacy Policy</a>
-            <a href="/terms" className="text-light text-decoration-none hover-underline">Terms & Conditions</a>
+            <a href="/TnC" className="text-light text-decoration-none hover-underline">Terms & Conditions</a>
           </div>
         </div>
         <hr className="border-secondary" />

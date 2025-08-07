@@ -11,6 +11,8 @@ import Details from "./Public/Details";
 import Profile from "./Public/Profile";
 import Main from "./Components/Main";
 import Checkout from "./Public/Checkout";
+import Privacy from "./Public/Privacy";
+import TnC from "./Public/TnC";
 
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
         <Route path="login" element={<><Main component={<Login />} /></>} />
         <Route path="cart" element={<><Main component={<Cart />} /></>} />
         <Route path="checkout" element={<><Main component={<Checkout/>} /></>} />
+        <Route path="privacy" element={<><Main component={<Privacy/>} /></>} />
+        <Route path="tnc" element={<><Main component={<TnC/>} /></>} />
       </Route>
 
       {/* private */}
