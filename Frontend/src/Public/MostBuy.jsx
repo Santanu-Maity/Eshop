@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Tbox from './Component/Tbox';
 
 export default function MostBuy() {
   const products = [
     { id: 13, name: "Washing Machine", price: 6490, image: '/img/washing machine.jpg' },
     { id: 14, name: "Smart Watch", price: 1299, image: '/img/smart Watch.jpg' },
-    { id: 15, name: "Neck band", price: 699, image: '/img/neck band.jpg' },
-    { id: 16, name: "Buds", price: 1399, image: '/img/buds.jpg' },
+    { id: 15, name: "Neckband", price: 699, image: '/img/neck band.jpg' },
+    { id: 16, name: "Smart Phone", price: 12998, image: '/img/smart phone.jpg', description: "Affordable smartphone with great features.", rating: 5 },
     { id: 17, name: "Laptop", price: 49500, image: '/img/laptop.jpg' },
     { id: 18, name: "T-Shirt", price: 398, image: '/img/t-shirt.jpg' },
 
@@ -49,4 +50,3 @@ export default function MostBuy() {
     </>
   )
 }
-

@@ -53,7 +53,7 @@ export default function Profile() {
     <div style={styles.container}>
       <div style={styles.card}>
         <img
-          src="./Img/profile logo2.png"
+          src="/Img/profile logo2.png"
           className="d-block w-70"
           alt="Profile"
           style={{

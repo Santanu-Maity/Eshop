@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
-
   const [Auth, setAuth] = useState(false);
 
   const [totalItems, setTotalItems] = useState(
@@ -56,7 +55,6 @@ export default function Navbar() {
 
         {/* Collapsible Navbar */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
           {/* Nav Links */}
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 d-flex align-items-center gap-2">
             <li className="nav-item">
@@ -88,14 +86,16 @@ export default function Navbar() {
               >
                 <i className="bi bi-bag me-1"></i> Product
               </Link>
-
             </li>
           </ul>
 
           {/* Right Side */}
           <div className="d-flex align-items-center">
             {/* Search */}
-            <div className="input-group input-group-sm mb-0" style={{ maxWidth: 400 }}>
+            <div
+              className="input-group input-group-sm mb-0"
+              style={{ maxWidth: 400 }}
+            >
               <input
                 type="text"
                 className="form-control me-2"
@@ -132,9 +132,27 @@ export default function Navbar() {
                 }}
               >
                 <i className="bi bi-cart3 me-2"></i> Cart
-                <span className="badge text-bg-secondary ms-2">{totalItems}</span>
+                <span className="badge text-bg-secondary ms-2">
+                  {totalItems}
+                </span>
               </Link>
             </div>
+            {/* Wishlist Button */}
+            {/* <div className="ms-3">
+              <Link
+                className="btn btn-sm btn-warning fw-bold px-3 d-flex align-items-center"
+                to="/Cart"
+                style={{
+                  borderRadius: "2rem",
+                  color: "#764ba2",
+                  background: "#ffffffff",
+                  border: "none",
+                  boxShadow: "0 2px 8px rgba(118,75,162,0.08)",
+                }}
+              >
+                Wishlist
+              </Link>
+            </div> */}
 
             {/* Login Dropdown */}
             <div className="ms-3 dropdown">
@@ -154,7 +172,10 @@ export default function Navbar() {
               >
                 <i className="bi bi-person-circle me-2"></i> Login
               </button>
-              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+              <ul
+                className="dropdown-menu dropdown-menu-end"
+                aria-labelledby="loginDropdown"
+              >
                 <li>
                   <Link className="dropdown-item" to="/Login">
                     <i className="bi bi-box-arrow-in-right me-2"></i>Login
@@ -165,14 +186,18 @@ export default function Navbar() {
                     <i className="bi bi-person-plus me-2"></i>Signup
                   </Link>
                 </li>
-                {Auth ? (<>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li>
-                    <Link className="dropdown-item" to="/auth/profile">
-                      <i className="bi bi-person-lines-fill me-2"></i>Profile
-                    </Link>
-                  </li>
-                </>) : (null)}
+                {Auth ? (
+                  <>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/auth/profile">
+                        <i className="bi bi-person-lines-fill me-2"></i>Profile
+                      </Link>
+                    </li>
+                  </>
+                ) : null}
               </ul>
             </div>
           </div>
