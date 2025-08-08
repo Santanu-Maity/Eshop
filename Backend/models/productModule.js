@@ -1,4 +1,4 @@
-const {getProductDatabase} = require('../models/database');// Tader code getuser database chilo ami get product data base use korechi
+const {getUserDatabase} = require('../models/database');// Tader code getuser database chilo ami get product data base use korechi
 const bcryptjs = require('bcryptjs');
 const { ObjectId } = require('mongodb');
 

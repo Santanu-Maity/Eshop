@@ -26,19 +26,6 @@ async function connectToUserDatabase() {
     console.log("Connected to the database successfully");
 }
 
-async function connectToProductDatabase() {
-    try {
-        await client.connect();
-        await client.db("product")
-        console.log("Pinged your deployement. You successfully connected to MongoDB!");
-    }
-    catch (error) {
-        console.error("Error connecting to the database", error);
-    }
-    db = client.db('ecom');
-    console.log("Connected to the database successfully");
-}
-
 async function getUserDatabase() {
     if (!db) {
         await connectToUserDatabase();
@@ -47,15 +34,6 @@ async function getUserDatabase() {
     return db;
 }
 
-async function getProductDatabase() {
-    if (!db) {
-        await connectToProductDatabase();
-        db = client.db("product");
-    }
-    return db;
-}
-
 module.exports = {
-    getUserDatabase,
-    getProductDatabase
+    getUserDatabase
 };

@@ -5,6 +5,9 @@ const express = require('express');
 
 const registerUser = async (req, res) => {
     const { fullname, contact, gender, email, password } = req.body;
+    if (!fullname || !contact || !gender || !email || !password) {
+        return res.status(400).json({ message: 'Input correct JSON data' });
+    }
     try {
         const result = await createUser(fullname, contact, gender, email, password);
         if (result.acknowledged === true) {
@@ -51,6 +54,9 @@ const authUser = async (req, res) => {
 
 const getUserDetails = async (req, res) => {
     const { id } = req.body;
+    if (!id) {
+        return res.status(400).json({ message: 'Input ID' });
+    }
     try {
         const userdetails = await getUSerById(id);
         const userAddress = await getUserAddress(id);
@@ -70,6 +76,9 @@ const getUserDetails = async (req, res) => {
 
 const setuserAddress = async (req, res) => {
     const { userId, pin, address, city, state, district } = req.body;
+    if (!userId || !pin || !address || !city || !state || !district) {
+        return res.status(400).json({ message: 'Input correct JSON data' });
+    }
     try {
         const result = await setUserAddress(userId, pin, address, city, state, district);
         if (result.acknowledged === true) {
@@ -85,6 +94,9 @@ const setuserAddress = async (req, res) => {
 
 const setuserOrder = async (req, res) => {
     const { userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount } = req.body;
+    if (!userId || !product_id || !address_id || !product_quantity || !payment_method || !total_amount || !discount_amount) {
+        return res.status(400).json({ message: 'Input correct JSON data' });
+    }
     try {
         const result = await setUserOrder(userId, product_id, address_id, product_quantity, payment_method, total_amount, discount_amount);
         if (result.acknowledged === true) {
@@ -101,6 +113,9 @@ const setuserOrder = async (req, res) => {
 
 const userCart = async (req, res) => {
     const { userId, product_id, product_quantity } = req.body;
+    if (!userId || !product_id || !product_quantity) {
+        return res.status(400).json({ message: 'Input correct JSON data' });
+    }
     try {
         const result = await setUserCart(userId, product_id, product_quantity);
         if (result.acknowledged === true) {
@@ -113,9 +128,12 @@ const userCart = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
- 
+
 const userReview = async (req, res) => {
     const { userId, product_id, review } = req.body;
+    if (!userId || !product_id || !review) {
+        return res.status(400).json({ message: 'Input correct JSON data' });
+    }
     try {
         const result = await setUserReview(userId, product_id, review);
         if (result.acknowledged === true) {
@@ -130,12 +148,15 @@ const userReview = async (req, res) => {
 };
 
 const UserWishlist = async (req, res) => {
-    const { userId, product_id} = req.body;
+    const { userId, product_id } = req.body;
+    if (!userId || !product_id) {
+        return res.status(400).json({ message: 'Input correct JSON data' });
+    }
     try {
         const result = await setUserWishlist(userId, product_id);
         if (result.acknowledged === true) {
             res.status(201).json({ message: 'Wishlist added successfully' });
-        }   else {
+        } else {
             res.status(400).json({ message: 'Wishlist addition failed' });
         }
     }
@@ -143,9 +164,6 @@ const UserWishlist = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
-
-
 
 module.exports = {
     registerUser,
@@ -156,5 +174,5 @@ module.exports = {
     userCart,
     setUserReview,
     UserWishlist
-   
+
 };

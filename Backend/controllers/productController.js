@@ -1,7 +1,11 @@
 const express = require('express');
 const { createProduct, getProductById, getProducts } = require('../models/productModule');
+
 const addProduct = async (req, res) => {
     const { name, price, description, category, image, quantity, discount_amount } = req.body;
+    if ( !name || !price || !description || !category || !image || !quantity || !discount_amount ){
+        return res.status(400).json({ message: 'Input Correct JSON Data' });
+    }
     try {
         const result = await createProduct(name, price, description, category, image, quantity, discount_amount);
         if (result.acknowledged === true) {
@@ -16,18 +20,21 @@ const addProduct = async (req, res) => {
 };
 
 const getProduct = async (req, res) => {
-    const {id} = req.body;
-    try{
+    const { id } = req.body;
+    if (!id) {
+        return res.status(400).json({ message: 'Enter ID' });
+    }
+    try {
         const result = await getProductById(id);
         if (result) {
-            res.status(200).json({result});
+            res.status(200).json({ result });
         }
     } catch (error) {
-         res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 };
 
-const getAllProduct = async (req,res) =>{
+const getAllProduct = async (req, res) => {
     try {
         const products = await getProducts();
         res.status(200).json(products);
