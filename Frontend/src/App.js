@@ -1,12 +1,9 @@
 
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./Components/Navbar";
 import Home from "./Public/Home";
 import Singup from "./Public/Singup";
 import Product from "./Public/Product";
-import MostBuy from "./Public/MostBuy";
 import Login from "./Public/Login";
-import Footer from "./Components/Footer";
 import Cart from "./Public/Cart";
 import Details from "./Public/Details";
 import Profile from "./Public/Profile";
