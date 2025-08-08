@@ -29,7 +29,7 @@ function App() {
     { id: 6, name: "Bed", price: 14999, image: '/img/bed.jpg', description: "Queen size wooden bed with storage.", rating: 5 },
     { id: 7, name: "Analog Watch", price: 292, image: '/img/analog watch.jpg', description: "Classic design analog watch for men.", rating: 4 },
     { id: 8, name: "Cycle", price: 5202, image: '/img/cycle.jpg', description: "Durable mountain bike for all terrains.", rating: 5 },
-    { id: 9, name: "Wall Clock", price: 215, image: '/img/wall clock 5.jpg', description: "Modern wall clock for home or office.", rating: 3 },
+    { id: 9, name: "Wall Clock", price: 215, image: '/img/wall clock.jpg', description: "Modern wall clock for home or office.", rating: 3 },
     { id: 10, name: "Buds", price: 1399, image: '/img/buds.jpg' },
     { id: 11, name: "Shoe", price: 599, image: '/img/shoe.jpg', description: "Comfortable running shoes.", rating: 4.5 },
     { id: 12, name: "Perfume", price: 199, image: '/img/perfume.jpg', description: "Long-lasting fragrance for daily use.", rating: 3 },
