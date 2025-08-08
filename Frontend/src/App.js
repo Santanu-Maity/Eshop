@@ -78,7 +78,7 @@ function App() {
       </Route>
       
       { <Route path="/auth">
-        <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
+        <Route path="Paymentpage" element={<><Main component={<PaymentPage />} /></>} />
       </Route> }
 
       <Route path="/auth">

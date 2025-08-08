@@ -45,7 +45,16 @@ export default function Wishlist() {
       <h2 className="text-center mb-4">Your Wishlist</h2>
 
       {wishlist.length === 0 ? (
+        <ul className="container mt-5 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "60vh" }}>
+         <img
+            src="https://cdn-icons-png.flaticon.com/512/2762/2762885.png"
+            alt="Empty Cart"
+            style={{ width: "180px", opacity: 0.7 }}
+            className="mb-4"
+          />
         <p className="text-center text-muted">No items in your wishlist yet.</p>
+        </ul>
+        
       ) : (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {wishlist.map((item) => (
