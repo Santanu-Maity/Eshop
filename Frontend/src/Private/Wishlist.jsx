@@ -47,7 +47,7 @@ export default function Wishlist() {
       {wishlist.length === 0 ? (
         <ul className="container mt-5 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "60vh" }}>
          <img
-            src="https://cdn-icons-png.flaticon.com/512/2762/2762885.png"
+            src="https://static.vecteezy.com/system/resources/previews/055/075/733/large_2x/illustration-of-shopping-wishlist-concept-vector.jpg"
             alt="Empty Cart"
             style={{ width: "180px", opacity: 0.7 }}
             className="mb-4"
