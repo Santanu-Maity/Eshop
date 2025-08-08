@@ -16,8 +16,28 @@ export default function Wishlist() {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
   };
 
-  const goToDetails = (id) => {
-    navigate(`/details/${id}`);
+  // ✅ Go to details with product data
+  const goToDetails = (item) => {
+    navigate(`/details/${item.id}`, { state: { product: item } });
+  };
+
+  // ✅ Add to Cart
+  const goToCart = (id) => {
+    const item = wishlist.find((p) => p.id === id);
+    if (!item) return;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // If item already in cart → increase quantity
+    const existingIndex = cart.findIndex((c) => c.id === id);
+    if (existingIndex >= 0) {
+      cart[existingIndex].quantity += 1;
+    } else {
+      cart.push({ ...item, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    navigate("/cart");
   };
 
   return (
@@ -40,12 +60,13 @@ export default function Wishlist() {
                 <div className="card-body">
                   <h5 className="card-title">{item.name}</h5>
                   <p className="card-text">₹{item.price.toLocaleString()}</p>
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between gap-2">
+                    
                     <button
-                      className="btn btn-outline-primary btn-sm"
-                      onClick={() => goToDetails(item.id)}
+                      className="btn btn-outline-success btn-sm"
+                      onClick={() => goToCart(item.id)}
                     >
-                      View Details
+                      Add to Cart
                     </button>
                     <button
                       className="btn btn-outline-danger btn-sm"
