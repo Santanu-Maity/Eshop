@@ -4,17 +4,17 @@ import Home from "./Public/Home";
 import Singup from "./Public/Singup";
 import Product from "./Public/Product";
 import Login from "./Public/Login";
-import Cart from "./Public/Cart";
+import Cart from "./Private/Cart";
 import Details from "./Public/Details";
-import Profile from "./Public/Profile";
+import Profile from "./Private/Profile";
 import Main from "./Components/Main";
-import Checkout from "./Public/Checkout";
+import Checkout from "./Private/Checkout";
 import Privacy from "./Public/Privacy";
 import TnC from "./Public/TnC";
-import Wishlist from "./Public/Wishlist";
-import PaymentPage from "./Public/Paymentpage";
-import ThankYou from "./Public/Thankyou";
-import Notification from "./Public/Notification";
+import Wishlist from "./Private/Wishlist";
+import PaymentPage from "./Private/Paymentpage";
+import ThankYou from "./Private/Thankyou";
+import Notification from "./Private/Notification";
 import SearchResults from "./Public/SearchResults";
 import Aboutus from "./Public/Aboutus";
 
@@ -56,15 +56,14 @@ function App() {
         </Route>
         <Route path="login" element={<><Main component={<Login />} /></>} />
         <Route path="cart" element={<><Main component={<Cart />} /></>} />
-        <Route path="checkout" element={<><Main component={<Checkout/>} /></>} />
-        <Route path="privacy" element={<><Main component={<Privacy/>} /></>} />
-        <Route path="tnc" element={<><Main component={<TnC/>} /></>} />
-        <Route path ="wishlist" element={<><Main component={<Wishlist />} /></>} />
-        <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
+        <Route path="checkout" element={<><Main component={<Checkout />} /></>} />
+        <Route path="privacy" element={<><Main component={<Privacy />} /></>} />
+        <Route path="tnc" element={<><Main component={<TnC />} /></>} />
+        <Route path="wishlist" element={<><Main component={<Wishlist />} /></>} />
         <Route path="notification" element={<><Main component={<Notification />} /></>} />
         <Route path="searchresults" element={<><Main component={<SearchResults />} /></>} />
         <Route path="aboutus" element={<><Main component={<Aboutus />} /></>} />
-        <Route path="/thank-you" element={<ThankYou />} />
+       
 
       </Route>
 
@@ -75,6 +74,31 @@ function App() {
 
       <Route path="/auth">
         <Route path="wishlist" element={<><Main component={<Wishlist />} /></>} />
+      </Route>
+
+
+      { <Route path="/auth">
+        <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
+      </Route> }
+
+      <Route path="/auth">
+        <Route path="thankyou" element={<><Main component={<ThankYou />} /></>} />
+      </Route>
+
+      <Route path="/auth">
+        <Route path="notification" element={<><Main component={<Notification />} /></>} />
+      </Route>
+
+      <Route path="/auth">
+        <Route path="notification" element={<><Main component={<Notification />} /></>} />
+      </Route>
+
+      <Route path="/auth">
+        <Route path="cart" element={<><Main component={<Cart />} /></>} />
+      </Route>
+      
+      <Route>
+         <Route path="/thank-you" element={<ThankYou />} />
       </Route>
 
 

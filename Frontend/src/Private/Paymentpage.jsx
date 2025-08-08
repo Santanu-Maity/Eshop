@@ -1,5 +1,5 @@
 // PaymentPage.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function PaymentPage() {
@@ -14,7 +14,14 @@ export default function PaymentPage() {
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCVV, setCardCVV] = useState("");
 
-  const totalAmount = location.state?.totalAmount || 999; // dummy amount
+  const totalAmount = location.state?.totalAmount;
+
+  // Redirect if no amount is provided
+  useEffect(() => {
+    if (!totalAmount) {
+      navigate("/");
+    }
+  }, [totalAmount, navigate]);
 
   const handlePayment = () => {
     if (paymentMethod === "UPI" && !upiId) return alert("Please enter UPI ID");
@@ -25,7 +32,6 @@ export default function PaymentPage() {
       return alert("Please fill all card details");
 
     setPaid(true);
-
     setTimeout(() => {
       navigate("/thank-you");
     }, 2000);
@@ -34,8 +40,13 @@ export default function PaymentPage() {
   return (
     <div className="container my-5">
       <h2 className="text-center mb-4 fw-bold text-success">Payment</h2>
-      <div className="card shadow p-4 rounded-4 border-0 mx-auto" style={{ maxWidth: "500px" }}>
-        <h4 className="mb-3 text-secondary">Total: ₹{totalAmount.toLocaleString()}</h4>
+      <div
+        className="card shadow p-4 rounded-4 border-0 mx-auto"
+        style={{ maxWidth: "500px" }}
+      >
+        <h4 className="mb-3 text-secondary">
+          Total: ₹{totalAmount?.toLocaleString()}
+        </h4>
 
         <div className="mb-3">
           <label className="form-label fw-semibold">Select Payment Method</label>
@@ -111,7 +122,10 @@ export default function PaymentPage() {
         )}
 
         {!paid ? (
-          <button className="btn btn-primary w-100 mt-3 rounded-4" onClick={handlePayment}>
+          <button
+            className="btn btn-primary w-100 mt-3 rounded-4"
+            onClick={handlePayment}
+          >
             <i className="bi bi-currency-rupee me-2"></i>Pay Now
           </button>
         ) : (
