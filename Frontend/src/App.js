@@ -1,22 +1,25 @@
 
 import { Route, Routes } from "react-router-dom";
+import Main from "./Components/Main";
 import Home from "./Public/Home";
 import Singup from "./Public/Singup";
 import Product from "./Public/Product";
 import Login from "./Public/Login";
-import Cart from "./Private/Cart";
 import Details from "./Public/Details";
-import Profile from "./Private/Profile";
-import Main from "./Components/Main";
-import Checkout from "./Private/Checkout";
 import Privacy from "./Public/Privacy";
 import TnC from "./Public/TnC";
+import SearchResults from "./Public/SearchResults";
+import Aboutus from "./Public/Aboutus";
+
+
+import Cart from "./Private/Cart";
+import Profile from "./Private/Profile";
+import Checkout from "./Private/Checkout";
 import Wishlist from "./Private/Wishlist";
 import PaymentPage from "./Private/Paymentpage";
 import ThankYou from "./Private/Thankyou";
 import Notification from "./Private/Notification";
-import SearchResults from "./Public/SearchResults";
-import Aboutus from "./Public/Aboutus";
+
 
 function App() {
 
@@ -63,8 +66,6 @@ function App() {
         <Route path="notification" element={<><Main component={<Notification />} /></>} />
         <Route path="searchresults" element={<><Main component={<SearchResults />} /></>} />
         <Route path="aboutus" element={<><Main component={<Aboutus />} /></>} />
-       
-
       </Route>
 
       {/* private */}
@@ -75,8 +76,7 @@ function App() {
       <Route path="/auth">
         <Route path="wishlist" element={<><Main component={<Wishlist />} /></>} />
       </Route>
-
-
+      
       { <Route path="/auth">
         <Route path="payment" element={<><Main component={<PaymentPage />} /></>} />
       </Route> }
