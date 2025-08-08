@@ -25,12 +25,6 @@ export default function Signup() {
   ];
 
   const [messageApi, contextHolder] = message.useMessage();
-  const success = () => {
-    messageApi.open({
-      type: 'success',
-      content: 'User registered successfully',
-    });
-  };
   const usererror = () => {
     messageApi.open({
       type: 'error',
@@ -45,7 +39,7 @@ export default function Signup() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== cpassword) {
       passerror();
@@ -59,11 +53,37 @@ export default function Signup() {
         email,
         password,
       };
-      console.log(userData);
-      success();
-      setTimeout(() => {
-        natigate('/login');
-      }, 1000);
+
+      await fetch(`${process.env.REACT_APP_MONGO}users/register`, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: { "Content-Type": "application/json" }
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.message === "Email already exists") {
+            messageApi.open({
+              type: 'warning',
+              content: data.message,
+            })
+            setTimeout(() => {
+              natigate('/login');
+            }, 1000);
+          } else if (data.message === "User registered successfully") {
+            messageApi.open({
+              type: 'success',
+              content: data.message,
+            })
+            setTimeout(() => {
+              natigate('/login');
+            }, 1000);
+          } else {
+            messageApi.open({
+              type: 'warning',
+              content: data.message,
+            })
+          }
+        })
     } catch (error) {
       usererror();
       return;

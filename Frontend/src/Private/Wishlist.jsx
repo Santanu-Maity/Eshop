@@ -49,7 +49,7 @@ export default function Wishlist() {
          <img
             src="https://static.vecteezy.com/system/resources/previews/055/075/733/large_2x/illustration-of-shopping-wishlist-concept-vector.jpg"
             alt="Empty Cart"
-            style={{ width: "180px", opacity: 0.7 }}
+            style={{ width: "400px", opacity: 0.7 }}
             className="mb-4"
           />
         <p className="text-center text-muted">No items in your wishlist yet.</p>

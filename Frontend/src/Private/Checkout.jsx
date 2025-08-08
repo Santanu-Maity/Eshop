@@ -107,7 +107,7 @@ export default function Checkout() {
             <button
               className="btn btn-lg btn-primary w-100 mt-3 rounded-4"
               disabled={cart.length === 0}
-              onClick={() => navigate("/Paymentpage", { state: { totalAmount } })} // ✅ Redirect with total
+              onClick={() => navigate("/auth/paymentpage", { state: { totalAmount } })} // ✅ Redirect with total
             >
               <i className="bi bi-credit-card-fill me-2"></i>Proceed to Pay
             </button>

@@ -11,7 +11,7 @@ export default function Product() {
         <div className="row g-3">
           {productList.map((product) => (
             <div key={product.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
-              <Link to={`/product/${product.id}`} style={{ textDecoration: "none" }}>
+              <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }}>
                 <div className="card h-100 shadow-sm" style={{ borderRadius: "1rem" }}>
                   <div className="card-header text-center fw-bold text-white"
                     style={{

@@ -9,7 +9,7 @@ const Details = () => {
   const productList =
     JSON.parse(localStorage.getItem("productList"))?.filter(Boolean) || [];
 
-  const product = productList.find((p) => p.id === parseInt(id)) || null;
+  const product = productList.find((p) => p._id === id) || null;
 
   const [quantity, setQuantity] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -18,19 +18,19 @@ const Details = () => {
     if (!product) return;
 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingProduct = cart.find((item) => item.id === product.id);
+    const existingProduct = cart.find((item) => item._id === product._id);
     if (existingProduct) {
       setQuantity(existingProduct.quantity);
     }
 
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    const isInWishlist = wishlist.some((item) => item.id === product.id);
+    const isInWishlist = wishlist.some((item) => item._id === product._id);
     setIsWishlisted(isInWishlist);
   }, [product]);
 
   const updateCartInLocalStorage = (newQuantity) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const productIndex = cart.findIndex((item) => item.id === product.id);
+    const productIndex = cart.findIndex((item) => item._id === product._id);
 
     if (newQuantity > 0) {
       if (productIndex !== -1) {
@@ -74,7 +74,7 @@ const Details = () => {
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
     if (isWishlisted) {
-      wishlist = wishlist.filter((item) => item.id !== product.id);
+      wishlist = wishlist.filter((item) => item._id !== product._id);
     } else {
       wishlist.push(product);
     }
@@ -148,13 +148,12 @@ const Details = () => {
                     return (
                       <i
                         key={index}
-                        className={`bi me-1 ${
-                          full
+                        className={`bi me-1 ${full
                             ? "bi-star-fill text-warning"
                             : half
-                            ? "bi-star-half text-warning"
-                            : "bi-star text-secondary"
-                        }`}
+                              ? "bi-star-half text-warning"
+                              : "bi-star text-secondary"
+                          }`}
                       />
                     );
                   })}
@@ -180,9 +179,8 @@ const Details = () => {
               title="Add to Wishlist"
             >
               <i
-                className={`bi ${
-                  isWishlisted ? "bi-heart-fill" : "bi-heart"
-                }`}
+                className={`bi ${isWishlisted ? "bi-heart-fill" : "bi-heart"
+                  }`}
               ></i>
             </button>
           </div>

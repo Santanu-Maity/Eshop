@@ -7,7 +7,6 @@ const createUser = async (fullname, contact, gender, email, password) => {
     const collection = db.collection('customer');
     const newObjectId = new ObjectId().toString();
     const hashedPassword = await bcryptjs.hash(password, 10);
-    const hpassword = hashedPassword;
     await collection.createIndex({ email: 1 }, { unique: true });
     const userData = {
         _id: newObjectId,
@@ -15,7 +14,7 @@ const createUser = async (fullname, contact, gender, email, password) => {
         contact,
         gender,
         email,
-        hpassword,
+        password:hashedPassword,
     };
     const result = await collection.insertOne(userData);
     return result;
@@ -28,7 +27,7 @@ const loginUser = async (email, password) => {
     if (!user) {
         throw new Error('User not found');
     }
-    const isPasswordValid = await bcryptjs.compare(password, user.hpassword);
+    const isPasswordValid = await bcryptjs.compare(password, user.password);
     if (!isPasswordValid) {
         throw new Error('Invalid password');
     }

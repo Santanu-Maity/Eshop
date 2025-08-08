@@ -7,16 +7,8 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const natigate = useNavigate();
 
-  console.log(email, password);
-
   const [messageApi, contextHolder] = message.useMessage();
 
-  const success = () => {
-    messageApi.open({
-      type: 'success',
-      content: 'User login successfully',
-    });
-  };
   const usererror = () => {
     messageApi.open({
       type: 'error',
@@ -24,17 +16,37 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const userData = {
         email,
         password,
       };
-      success();
-      setTimeout(() => {
-        natigate('/');
-      }, 1000);
+
+      await fetch(`${process.env.REACT_APP_MONGO}users/login`, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: { "Content-Type": "application/json" }
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.message === "Login successful") {
+            messageApi.open({
+              type: 'success',
+              content: data.message,
+            })
+            localStorage.setItem("token", data.user.token)
+            setTimeout(() => {
+              natigate('/');
+            }, 1000);
+          } else {
+            messageApi.open({
+              type: 'warning',
+              content: data.message,
+            })
+          }
+        })
     } catch (error) {
       usererror();
       return;
