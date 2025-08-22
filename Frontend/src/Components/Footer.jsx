@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <p className="mb-0 small">Mail Us: support@eshop.com</p>
             <p className="mb-0 small">
-              Registered Office: Baruipur, South 24 Parganas, West Bengal
+              Registered Office: Kolkata, West Bengal , INDIA
             </p>
           </div>
           <div className="col-md-6 text-center text-md-end">
